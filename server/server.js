@@ -8,19 +8,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ["https://kropp-gym.netlify.app/"],
+    origin: ["https://kropp-gym.netlify.app"],
     methods: ["POST", "GET", "DELETE"],
-    header: ["Access-Control-Allow-Origin", "*"],
   })
 );
 const PORT = 8080;
 
 app.use((req, res, next) => {
-  // res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", " Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
   next();
 });
