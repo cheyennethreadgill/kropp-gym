@@ -45,6 +45,18 @@ app.get("/customerorder", (req, res) => {
     }
   });
 });
+// handles get request for customer newsletter
+app.get("/newsletter", (req, res) => {
+  const query = "SELECT * FROM newsletter";
+
+  db.query(query, (err, result) => {
+    if (err) {
+      throw err;
+    } else {
+      return res.end(JSON.stringify(result));
+    }
+  });
+});
 
 // INSERT INTO CUSTOMER ORDER TABLE
 app.post("/customerorder", (req, res) => {
