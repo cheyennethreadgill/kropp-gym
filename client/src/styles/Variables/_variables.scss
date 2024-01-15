@@ -1,0 +1,243 @@
+// Typography-----------------------
+
+// variables
+$primary: #000000;
+$secondary: #0a0a0a;
+$dark: #131619;
+$light: #eff0f3;
+$danger: #dc3232;
+$warning: #ffb900;
+
+// colors
+$color-body: #404040b3;
+$color-input-light: 1px solid #ffffff;
+$color-input: 1px solid #d5d5d5;
+$color-input-dark: 1px solid $dark;
+$color-border: #4040403d;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// class overrides----------------
+// Global---------------------------
+.container {
+  padding: 0 1.5em;
+}
+// ---------------------------------------------------IMAGES
+// ---------------------------------------------------Typography
+.h1-primary {
+  font-size: 2.375em;
+
+  @include breakpoints-up(sm) {
+    font-size: 4.375em;
+  }
+  @include breakpoints-up(md) {
+    font-size: 7.375em;
+  }
+  @include breakpoints-up(lg) {
+    font-size: 9.375em;
+  }
+}
+.h1-secondary {
+  font-size: 2.375em;
+
+  @include breakpoints-up(md) {
+    font-size: 3.75em;
+  }
+}
+// --------------------------------------------------------Color
+[data-bs-theme="dark"] {
+  --bs-link-color-rgb: 255, 255, 255;
+}
+
+//------------------------------------ Sizing------
+.bottom-30 {
+  bottom: 30vh;
+}
+.bottom-35 {
+  bottom: 35vh;
+}
+.bottom-40 {
+  bottom: 40vh;
+}
+// -----------------------------------------nav---------
+.navbar-toggler {
+  border: var(--bs-border-width) solid rgb(255 255 255);
+  border-radius: 10em;
+
+  &-icon {
+    width: 1em;
+    height: 1.7em;
+  }
+}
+// forms------------------------------------------------------------------------------------------------
+
+// Form Control---------------------------------
+.form-control.is-valid, .was-validated .form-control:valid {
+  background-image: none;
+}
+.was-validated .form-control:invalid {
+  background-image: none;
+}
+.form-control.is-valid, .was-validated .form-control:valid {
+  background-image: none;
+}
+.input-container {
+  position: relative;
+}
+.button-container {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+
+  button {
+    &:hover {
+      color: $dark !important;
+      background-color: transparent;
+    }
+  }
+}
+
+.form-control {
+  width: 100% !important;
+  @extend .btn-outline-dark;
+  font-size: 1em;
+  position: relative;
+  color: $dark;
+
+  &::placeholder {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &:focus {
+    background: none;
+    box-shadow: none;
+    border: $color-input-dark;
+    color: $dark;
+  }
+
+  &:hover {
+    color: $dark;
+  }
+}
+.form-control-light {
+  @extend .btn-outline-dark;
+  font-size: 1em;
+  color: white;
+
+  &::placeholder {
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.3;
+    color: $light;
+  }
+
+  &:hover {
+    color: $light !important;
+  }
+  &:focus {
+    box-shadow: none;
+    border: $color-input-light;
+  }
+}
+
+//--------------------------------------------- Button
+
+.btn-outline-light {
+  background-color: transparent;
+  position: relative;
+  color: $light !important;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    content: url('data:image/svg+xml,<svg class="qodef-svg--button-arrow" xmlns="http://www.w3.org/2000/svg" width="19.282" height="26.788" viewBox="0 0 19.282 26.788" ><g transform="translate(0.354 0)"><path d="M0,0V26.27" transform="translate(9.382 0)" fill="none" stroke="white" stroke-width="1" ></path><path d="M13.135,13.135H0V0" transform="translate(0 16.793) rotate(-45)" fill="none" stroke="white" stroke-width="1" ></path></g></svg>');
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    transform: rotate(225deg);
+    transition: all ease-out 300ms;
+    color: $light !important;
+    background-color: transparent;
+
+    &:hover {
+      color: $light !important;
+      background-color: transparent;
+      transform: rotate(270deg);
+      transition: all ease-in 300ms;
+    }
+  }
+}
+.btn-outline-dark {
+  background-color: transparent;
+  position: relative;
+  color: $dark;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    content: url('data:image/svg+xml,<svg class="qodef-svg--button-arrow" xmlns="http://www.w3.org/2000/svg" width="19.282" height="26.788" viewBox="0 0 19.282 26.788" ><g transform="translate(0.354 0)"><path d="M0,0V26.27" transform="translate(9.382 0)" fill="none" stroke="currentColor" stroke-width="1" ></path><path d="M13.135,13.135H0V0" transform="translate(0 16.793) rotate(-45)" fill="none" stroke="currentColor" stroke-width="1" ></path></g></svg>');
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    transform: rotate(225deg);
+    transition: all ease-out 300ms;
+    color: $dark !important;
+    background-color: transparent;
+
+    &:hover {
+      color: $dark !important;
+      background-color: transparent;
+      transform: rotate(270deg);
+      transition: all ease-in 300ms;
+    }
+  }
+}
+.btn,
+.form-control {
+  border-radius: 1.875em;
+  padding: 0.8125rem 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+}
+.form-control,
+.btn-dark,
+.btn-light {
+  &:hover {
+    color: none;
+  }
+}
+
+.btn-light {
+  position: relative;
+  @extend .btn;
+  @extend .btn-outline-light;
+  padding: 0.8125rem 4.2rem 0.8125rem 1.2em;
+  width: fit-content;
+
+  &:hover {
+    transform: none;
+    color: $light !important;
+    background-color: transparent;
+  }
+}
+.btn-dark {
+  position: relative;
+  @extend .btn;
+  @extend .btn-outline-dark;
+  padding: 0.8125rem 4.2rem 0.8125rem 1.2rem;
+  width: fit-content;
+
+  &:hover {
+    color: $dark !important;
+    background-color: transparent;
+  }
+}

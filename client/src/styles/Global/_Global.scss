@@ -1,0 +1,46 @@
+body {
+  color: $primary;
+  color: 255 255 255;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+a,
+button {
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+p,
+li {
+  color: $color-body;
+  line-height: 1.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.title-container {
+  position: relative;
+
+  &_characters {
+    position: absolute;
+    top: -62px;
+    left: -72px;
+    opacity: 0.06;
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: -8px;
+    transform: translateX(-600px);
+
+    // &_char {
+    // }
+  }
+}
