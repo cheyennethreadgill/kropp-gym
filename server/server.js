@@ -68,7 +68,7 @@ app.get("/newsletter", (req, res) => {
 });
 // after
 // use to enable cors for a single route
-var corsOption = {
+var corsOptions = {
   origin: "https://kropp-gym.netlify.app/",
   methods: ["GET", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Accept"],
@@ -76,7 +76,7 @@ var corsOption = {
   optionsSuccessStatus: 204,
 };
 // before
-// var corsOption = {
+// var corsOptions = {
 //   origin: "https://kropp-gym.netlify.app/",
 //   methods: ["GET, POST, DELETE"],
 //   allowedHeaders: ["Content-Type, Accept"],
@@ -85,11 +85,11 @@ var corsOption = {
 // };
 
 // enable cors options for client preflight request
-app.options("/customerorder", cors());
+app.options("/customerorder", cors({ corsOptions }));
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
-app.post("/customerorder", cors(corsOption), (req, res) => {
+app.post("/customerorder", cors(corsOptions), (req, res) => {
   // app.post("/customerorder", (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
