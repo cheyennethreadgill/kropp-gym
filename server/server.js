@@ -80,7 +80,7 @@ app.options("https://kropp-gym.netlify.app", cors());
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
-app.post("/customerorder", cors(corsOption), (req, res) => {
+app.post("/customerorder", cors(), (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
   let LName = req.body.LName;
