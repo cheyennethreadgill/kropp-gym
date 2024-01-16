@@ -19,13 +19,13 @@ const PORT = 8080;
 // });
 
 // use to enable cors for a single route
-// var corsOption = {
-//   origin: "https://kropp-gym.netlify.app",
-//   methods: "GET,POST,DELETE",
-//   allowedHeaders: "Content-Type, Accept",
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
+var corsOption = {
+  origin: "https://kropp-gym.netlify.app",
+  methods: "GET, POST, DELETE",
+  allowedHeaders: "Content-Type, Accept",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
@@ -76,11 +76,11 @@ app.get("/newsletter", (req, res) => {
   });
 });
 
-app.options("https://kropp-gym.netlify.app", cors());
+// app.options("https://kropp-gym.netlify.app", cors());
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
-app.post("/customerorder", cors(), (req, res) => {
+app.post("/customerorder", cors(corsOption), (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
   let LName = req.body.LName;
