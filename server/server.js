@@ -6,7 +6,7 @@ const cors = require("cors");
 // after
 // use to enable cors for a single route
 var corsOptions = {
-  origin: "https://kropp-gym.netlify.app",
+  origin: "*",
 };
 // use to enable all cors requests
 const app = express();
