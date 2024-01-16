@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = 8080;
 
 // same as cors config below
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
-//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-//   next();
-// });
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Origin", "");
+  res.set("Access-Control-Allow-Headers", "Content-Type, Accept");
+  res.set("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  next();
+});
 
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
@@ -51,7 +51,7 @@ app.get("/customerorder", (req, res) => {
       throw err;
     } else {
       return res.end(
-        `${JSON.stringify(result)} Customer order post server request working`
+        `${JSON.stringify(result)} Customer order post server request working HEADERS ${res.header}`
       );
     }
   });
