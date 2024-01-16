@@ -26,9 +26,6 @@ const Newsletter = () => {
     };
     fetch(`https://kropp-gym.vercel.app/newsletter`, postOptions)
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      })
       .catch((err) => {
         throw err;
       });
