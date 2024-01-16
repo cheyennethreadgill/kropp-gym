@@ -83,6 +83,7 @@ var corsOptions = {
   origin: true,
   methods: ["GET", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Accept"],
+  exposedHeaders: ["Origin, Methods", "allowedHeaders"],
   preflightContinue: false,
   optionsSuccessStatus: 204,
 };
