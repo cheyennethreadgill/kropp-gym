@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 // use to enable all cors requests
-// app.use(cors());
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,6 +21,10 @@ const PORT = 8080;
 
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
+  // host: "localhost",
+  // user: "root",
+  // password: "Cheyenne1234",
+  // database: "kropp-gym-products",
   host: process.env.DB_HOST,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
@@ -116,6 +120,7 @@ app.post("/customerorder", (req, res) => {
 // INSERT INTO NEWSLETTER TABLE
 app.post("/newsletter", (req, res) => {
   let email = req.body.email;
+  console.log(email);
 
   let sqlCustomer = "INSERT INTO newsletter (email) VALUES (?)";
   let vals = [email];
@@ -124,9 +129,7 @@ app.post("/newsletter", (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.end(
-        `${JSON.stringify(result)} Customer order post server request working `
-      );
+      res.end(`${JSON.stringify(result)}`);
     }
     res.json(
       JSON.stringify({
