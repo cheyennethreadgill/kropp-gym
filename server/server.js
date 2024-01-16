@@ -10,7 +10,7 @@ var corsOptions = {
 };
 // use to enable all cors requests
 const app = express();
-app.use(cors(corsOptions));
+app.use(cors({ corsOptions }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
