@@ -96,7 +96,7 @@ app.post("/customerorder", (req, res) => {
     "INSERT INTO customerorder (customerID, firstName, lastName, email, total, date, notes) VALUES (?)";
   let vals = [customerID, FName, LName, email, total, date, notes];
 
-  db.query(sqlCustomer, [vals], (err, res) => {
+  db.query(sqlCustomer, [vals], (err, results) => {
     if (err) {
       throw err;
     }
@@ -118,12 +118,12 @@ app.post("/newsletter", (req, res) => {
   let sqlCustomer = "INSERT INTO newsletter (email) VALUES (?)";
   let vals = [email];
 
-  db.query(sqlCustomer, [vals], (err, res) => {
+  db.query(sqlCustomer, [vals], (err, results) => {
     if (err) {
       throw err;
     } else {
       res.end(
-        `${JSON.stringify(res)} Customer order post server request working `
+        `${JSON.stringify(result)} Customer order post server request working `
       );
     }
     res.json(
