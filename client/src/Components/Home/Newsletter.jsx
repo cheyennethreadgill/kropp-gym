@@ -30,7 +30,7 @@ const Newsletter = () => {
         console.log(res);
       })
       .catch((err) => {
-        res.json(err);
+        throw err;
       });
   };
 
