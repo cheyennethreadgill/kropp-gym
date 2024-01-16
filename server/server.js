@@ -79,16 +79,16 @@ app.get("/newsletter", (req, res) => {
 
 // after
 // use to enable cors for a single route
-// var corsOptions = {
-//   origin: true,
-//   methods: ["GET", "POST", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Accept"],
-//   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
+var corsOptions = {
+  origin: true,
+  methods: ["GET", "POST", "DELETE"],
+  allowedHeaders: ["Content-Type", "Accept"],
+  exposedHeaders: ["Origin, Methods", "allowedHeaders"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 // enable preflight cors options for client preflight request
-// app.options("/customerorder", cors(corsOptions));
+app.options("/customerorder", cors(corsOptions));
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
