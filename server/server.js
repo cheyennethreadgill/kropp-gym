@@ -18,7 +18,7 @@ const PORT = 8080;
 // });
 
 var corsOption = {
-  origin: "*",
+  origin: "https://kropp-gym.netlify.app",
   methods: "GET,POST,DELETE",
   allowedHeaders: "Content-Type, Accept",
   preflightContinue: false,
