@@ -111,7 +111,6 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
           notes: notes,
         }),
       };
-      // fetch(`https://kropp-gym.vercel.app/customerorder`, postOptions)
       fetch(`https://kropp-gym.vercel.app/customerorder`, postOptions)
         .then((res) => res.json())
         .then((res) => {
