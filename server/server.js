@@ -50,8 +50,9 @@ app.get("/customerorder", (req, res) => {
     if (err) {
       throw err;
     } else {
-      // return res.end(JSON.stringify(result));
-      res.end("Customer order post server request working");
+      return res.end(
+        `${JSON.stringify(result)} Customer order post server request working`
+      );
     }
   });
 });
