@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // use to enable all cors requests
-app.use(cors());
+// app.use(cors());
 const PORT = 8080;
 
 // same as cors config below
@@ -67,21 +67,21 @@ app.get("/newsletter", (req, res) => {
   });
 });
 // use to enable cors for a single route
-// var corsOption = {
-//   origin: "https://kropp-gym.netlify.app/",
-//   methods: ["GET, POST, DELETE"],
-//   allowedHeaders: ["Content-Type, Accept"],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
+var corsOption = {
+  origin: "https://kropp-gym.netlify.app/",
+  methods: ["GET, POST, DELETE"],
+  allowedHeaders: ["Content-Type, Accept"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
 // enable cors options for client preflight request
 // app.options("/customerorder", cors());
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
-// app.post("/customerorder", cors(corsOption), (req, res) => {
-app.post("/customerorder", (req, res) => {
+app.post("/customerorder", cors(corsOption), (req, res) => {
+  // app.post("/customerorder", (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
   let LName = req.body.LName;
