@@ -80,14 +80,14 @@ app.get("/newsletter", (req, res) => {
 // after
 // use to enable cors for a single route
 var corsOptions = {
-  origin: "https://kropp-gym.netlify.app",
+  origin: "*",
   // origin: "https://kropp-gym.netlify.app/Checkout",
   methods: ["GET", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Accept"],
   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
   preflightContinue: false,
   optionsSuccessStatus: 204,
-  credentials: true
+  credentials: true,
 };
 // enable preflight cors options for client preflight request
 app.options("/customerorder", cors(corsOptions));
