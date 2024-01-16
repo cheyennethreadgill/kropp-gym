@@ -20,11 +20,6 @@ const Newsletter = () => {
     // POST NEWLSETTER REQUEST
     const postOptions = {
       method: "POST",
-      headers: {
-        Accept: "application/json, text/plain",
-        "Content-Type": "application/json",
-      },
-
       body: JSON.stringify({
         email: email,
       }),
