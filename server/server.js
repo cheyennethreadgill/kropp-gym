@@ -87,6 +87,7 @@ var corsOptions = {
   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
   preflightContinue: false,
   optionsSuccessStatus: 204,
+  credentials: true
 };
 // enable preflight cors options for client preflight request
 app.options("/customerorder", cors(corsOptions));
