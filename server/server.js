@@ -99,6 +99,8 @@ app.post("/customerorder", (req, res) => {
   db.query(sqlCustomer, [vals], (err, results) => {
     if (err) {
       throw err;
+    } else {
+      res.json(results);
     }
     res.json(
       JSON.stringify({
