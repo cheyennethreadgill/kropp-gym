@@ -70,7 +70,9 @@ app.get("/newsletter", (req, res) => {
     if (err) {
       throw err;
     } else {
-      return res.end(JSON.stringify(result));
+      return res.end(
+        `${JSON.stringify(result)} news post server request working`
+      );
     }
   });
 });
