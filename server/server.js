@@ -18,15 +18,6 @@ const PORT = 8080;
 //   next();
 // });
 
-// use to enable cors for a single route
-var corsOption = {
-  origin: "https://kropp-gym.netlify.app",
-  methods: "GET, POST, DELETE",
-  allowedHeaders: "Content-Type, Accept",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
-
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -75,8 +66,15 @@ app.get("/newsletter", (req, res) => {
     }
   });
 });
-
-// app.options("https://kropp-gym.netlify.app", cors());
+// use to enable cors for a single route
+var corsOption = {
+  origin: "https://kropp-gym.netlify.app/",
+  methods: "GET, POST, DELETE",
+  allowedHeaders: "Content-Type, Accept",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+app.options("/customerorder", cors());
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
