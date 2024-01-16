@@ -32,7 +32,7 @@ db.connect((err) => {
 
 const allowCors = (fn) => async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
   // another common pattern
   // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   res.setHeader(
@@ -54,8 +54,6 @@ const handler = (req, res) => {
   const d = new Date();
   res.end(d.toString());
 };
-
-module.exports = allowCors(handler);
 
 // handles get request for customer order info
 app.get("/", (req, res) => {
@@ -195,4 +193,5 @@ app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}...`);
 });
 
+module.exports = allowCors(handler);
 module.exports = app;
