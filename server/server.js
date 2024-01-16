@@ -80,7 +80,8 @@ app.get("/newsletter", (req, res) => {
 // after
 // use to enable cors for a single route
 var corsOptions = {
-  origin: "https://kropp-gym.netlify.app",
+  // origin: "https://kropp-gym.netlify.app/",
+  origin: "https://kropp-gym.netlify.app/Checkout",
   methods: ["GET", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Accept"],
   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
