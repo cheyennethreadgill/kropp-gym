@@ -9,12 +9,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors());
 const PORT = 8080;
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", " Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
-  next();
-});
+// same as cors config below
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", " Content-Type, Accept");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
+//   next();
+// });
+
+var corsOption = {
+  origin: "*",
+  methods: "GET,POST,DELETE",
+  allowedHeaders: "Content-Type, Accept",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
@@ -66,7 +75,8 @@ app.get("/newsletter", (req, res) => {
 });
 
 // INSERT INTO CUSTOMER ORDER TABLE
-app.post("/customerorder", (req, res) => {
+//    handles single rote with cors middleware
+app.post("/customerorder", cors(corsOption), (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
   let LName = req.body.LName;
