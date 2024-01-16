@@ -101,6 +101,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
           Accept: "application/json, text/plain",
           "Content-Type": "application/json",
         },
+        mode: "no-cors",
         body: JSON.stringify({
           FName: FName,
           LName: LName,
