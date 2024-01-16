@@ -98,8 +98,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
       const postOptions = {
         method: "POST",
         headers: {
-          Accept: "application/json, text/plain",
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         mode: "no-cors",
         body: JSON.stringify({
