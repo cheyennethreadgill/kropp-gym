@@ -10,7 +10,6 @@
     {
       "src": "/(.*)",
       "dest": "server.js",
-      "origin": ["Access-Control-Allow-Origin", "*"],
       "methods": ["Access-Control-Allow-Methods", "GET, POST, DELETE"],
       "headers": ["Access-Control-Allow-Headers", "Content-Type, Accept"]
     }
