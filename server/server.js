@@ -51,7 +51,7 @@ app.get("/customerorder", (req, res) => {
       throw err;
     } else {
       return res.end(
-        `${JSON.stringify(result)} Customer order post server request working Headers: ${res.header}`
+        `${JSON.stringify(result)} Customer order post server request working`
       );
     }
   });
