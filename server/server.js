@@ -30,6 +30,33 @@ db.connect((err) => {
   console.log("Mysql Connected...");
 });
 
+const allowCors = (fn) => async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  );
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
+  return await fn(req, res);
+};
+
+const handler = (req, res) => {
+  const d = new Date();
+  res.end(d.toString());
+};
+
+module.exports = allowCors(handler);
+
 // handles get request for customer order info
 app.get("/", (req, res) => {
   const query = "SELECT * FROM customerorder";
@@ -79,23 +106,23 @@ app.get("/newsletter", (req, res) => {
 
 // after
 // use to enable cors for a single route
-var corsOptions = {
-  origin: "*",
-  // origin: "https://kropp-gym.netlify.app/Checkout",
-  methods: ["GET", "POST", "DELETE"],
-  allowedHeaders: ["Content-Type", "Accept"],
-  exposedHeaders: ["Origin, Methods", "allowedHeaders"],
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  credentials: true,
-};
+// var corsOptions = {
+//   origin: "*",
+//   // origin: "https://kropp-gym.netlify.app/Checkout",
+//   methods: ["GET", "POST", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Accept"],
+//   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+//   credentials: true,
+// };
 // enable preflight cors options for client preflight request
-app.options("/customerorder", cors(corsOptions));
+// app.options("/customerorder", cors(corsOptions));
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
-app.post("/customerorder", cors(corsOptions), (req, res) => {
-  // app.post("/customerorder", (req, res) => {
+// app.post("/customerorder", cors(corsOptions), (req, res) => {
+app.post("/customerorder", (req, res) => {
   let customerID = req.body.customerID;
   let FName = req.body.FName;
   let LName = req.body.LName;
