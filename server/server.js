@@ -84,7 +84,7 @@ var corsOptions = {
 //   optionsSuccessStatus: 204,
 // };
 
-// enable cors options for client preflight request
+// enable preflight cors options for client preflight request
 app.options("/customerorder", cors({ corsOptions }));
 
 // INSERT INTO CUSTOMER ORDER TABLE
