@@ -120,7 +120,7 @@ app.post("/newsletter", (req, res) => {
   let sqlCustomer = "INSERT INTO newsletter (email) VALUES (?)";
   let vals = [email];
 
-  db.query(sqlCustomer, [vals], (err, results) => {
+  db.query(sqlCustomer, [vals], (err, result) => {
     if (err) {
       throw err;
     } else {
