@@ -5,7 +5,7 @@ const cors = require("cors");
 
 // use to enable all cors requests
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
