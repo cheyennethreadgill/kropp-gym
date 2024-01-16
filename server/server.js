@@ -6,6 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// use to enable all cors requests
 // app.use(cors());
 const PORT = 8080;
 
@@ -17,13 +18,14 @@ const PORT = 8080;
 //   next();
 // });
 
-var corsOption = {
-  origin: "https://kropp-gym.netlify.app",
-  methods: "GET,POST,DELETE",
-  allowedHeaders: "Content-Type, Accept",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
+// use to enable cors for a single route
+// var corsOption = {
+//   origin: "https://kropp-gym.netlify.app",
+//   methods: "GET,POST,DELETE",
+//   allowedHeaders: "Content-Type, Accept",
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+// };
 
 // DATABASE CONNECTION & AUTH
 const db = mysql.createConnection({
@@ -73,6 +75,8 @@ app.get("/newsletter", (req, res) => {
     }
   });
 });
+
+app.options("https://kropp-gym.netlify.app", cors());
 
 // INSERT INTO CUSTOMER ORDER TABLE
 //    handles single rote with cors middleware
