@@ -12,7 +12,7 @@ const PORT = 8080;
 
 // same as cors config below
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
   next();
