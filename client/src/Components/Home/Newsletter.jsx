@@ -6,9 +6,10 @@ import HeaderAccent from "../Global/headerAccent";
 const Newsletter = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
-  // const URL = "http://localhost:3001";
+  // const URL = "http://localhost:8080";
 
   const handleSubmit = (event) => {
+    console.log(email);
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -20,14 +21,19 @@ const Newsletter = () => {
     // POST NEWLSETTER REQUEST
     const postOptions = {
       method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, *",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         email: email,
       }),
     };
-    fetch(`https://kropp-gym.vercel.app/newsletter`, postOptions)
+    // fetch(`https://kropp-gym.vercel.app/newsletter`, postOptions)
+    fetch("https://kropp-gym.vercel.app/newsletter", postOptions)
       .then((res) => res.json())
       .catch((err) => {
-        throw err;
+        console.log(err);
       });
   };
 
