@@ -114,6 +114,7 @@ app.post("/customerorder", cors(corsOptions), (req, res) => {
         itemAdded: req.body,
       })
     );
+    res.end("Customer order post server request working");
   });
   console.log("Post result ran.");
 });
