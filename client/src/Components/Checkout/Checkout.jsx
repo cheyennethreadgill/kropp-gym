@@ -97,11 +97,11 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
       // POST ORDER REQUEST
       const postOptions = {
         method: "POST",
-        headers: {
-          // Accept: "application/json, text/plain",
-          Accept: "text/plain",
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   // Accept: "application/json, text/plain",
+        //   Accept: "text/plain",
+        //   "Content-Type": "application/json",
+        // },
         body: JSON.stringify({
           FName: FName,
           LName: LName,
