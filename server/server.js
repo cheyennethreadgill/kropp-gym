@@ -80,7 +80,7 @@ app.get("/newsletter", (req, res) => {
 // after
 // use to enable cors for a single route
 var corsOptions = {
-  origin: true,
+  origin: "*",
   methods: ["GET", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Accept"],
   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
