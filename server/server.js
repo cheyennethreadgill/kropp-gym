@@ -31,7 +31,7 @@ db.connect((err) => {
 });
 
 // handles get request for customer order info
-app.get("/https://kropp-gym.vercel.app/customerorder", (req, res) => {
+app.get("/", (req, res) => {
   const query = "SELECT * FROM customerorder";
 
   db.query(query, (err, result) => {
@@ -43,7 +43,7 @@ app.get("/https://kropp-gym.vercel.app/customerorder", (req, res) => {
   });
 });
 // handles get request for customer order info
-app.get("https://kropp-gym.vercel.app/customerorder", (req, res) => {
+app.get("/customerorder", (req, res) => {
   const query = "SELECT * FROM customerorder";
 
   db.query(query, (err, result) => {
