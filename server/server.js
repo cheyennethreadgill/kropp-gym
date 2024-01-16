@@ -3,14 +3,9 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-// after
-// use to enable cors for a single route
-var corsOptions = {
-  origin: "*",
-};
 // use to enable all cors requests
+// app.use(cors());
 const app = express();
-app.use(cors({ corsOptions }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -76,28 +71,12 @@ app.get("/newsletter", (req, res) => {
     }
   });
 });
-// before
-// var corsOptions = {
-//   origin: "https://kropp-gym.netlify.app/",
-//   methods: ["GET, POST, DELETE"],
-//   allowedHeaders: ["Content-Type, Accept"],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
 
 // after
 // use to enable cors for a single route
 // var corsOptions = {
 //   origin: "*",
-//   // origin: "https://kropp-gym.netlify.app/Checkout",
-//   methods: ["GET", "POST", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Accept"],
-//   exposedHeaders: ["Origin, Methods", "allowedHeaders"],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-//   credentials: true,
 // };
-
 // enable preflight cors options for client preflight request
 // app.options("/customerorder", cors(corsOptions));
 
