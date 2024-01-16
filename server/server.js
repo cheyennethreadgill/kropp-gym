@@ -142,6 +142,10 @@ app.post("/newsletter", (req, res) => {
   db.query(sqlCustomer, [vals], (err, results) => {
     if (err) {
       throw err;
+    } else {
+      res.end(
+        `${JSON.stringify(result)} Customer order post server request working `
+      );
     }
     res.json(
       JSON.stringify({

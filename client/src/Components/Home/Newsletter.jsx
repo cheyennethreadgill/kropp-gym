@@ -9,6 +9,7 @@ const Newsletter = () => {
   // const URL = "http://localhost:3001";
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -23,7 +24,7 @@ const Newsletter = () => {
         Accept: "application/json, text/plain",
         "Content-Type": "application/json",
       },
-      
+
       body: JSON.stringify({
         email: email,
       }),
