@@ -9,7 +9,6 @@ const Newsletter = () => {
   // const URL = "http://localhost:8080";
 
   const handleSubmit = (event) => {
-    console.log(email);
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
