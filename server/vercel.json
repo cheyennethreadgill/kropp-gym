@@ -9,18 +9,11 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server.js"
-    }
-  ],
-  "headers": [
-    {
-      "src": "/(.*)",
-      "headers": [
-        {
-          "key": "access-control-allow-origin",
-          "value": "*"
-        }
-      ]
+      "dest": "server.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
     }
   ]
 }
