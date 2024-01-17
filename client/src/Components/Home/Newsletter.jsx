@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import HeaderAccent from "../Global/headerAccent";
@@ -6,10 +6,7 @@ import HeaderAccent from "../Global/headerAccent";
 const Newsletter = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
-
   const handleFormValidation = (event) => {
-    event.preventDefault();
-
     const form = event.currentTarget;
 
     if (form.checkValidity() === false) {
@@ -42,8 +39,8 @@ const Newsletter = () => {
           `Problem with fetching from server: ${fetchPromiseResponse.status}`
         );
       }
-      const fetchJson = await fetchPromiseResponse.json();
-      console.log(fetchJson);
+      const jsonPromiseResponse = await fetchPromiseResponse.json();
+      console.log(jsonPromiseResponse);
     } catch {
       (err) => {
         console.log(`FETCH FAILED: ${err}`);
@@ -64,6 +61,7 @@ const Newsletter = () => {
               validated={validated}
               onSubmit={(event) => {
                 handleFormValidation(event);
+                handleNewsletterFetch(event);
               }}
             >
               <Form.Group as={Col}>
