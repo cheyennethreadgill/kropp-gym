@@ -6,17 +6,22 @@ import HeaderAccent from "../Global/headerAccent";
 const Newsletter = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
-  // const URL = "http://localhost:8080";
+  const URL = "http://localhost:8080";
 
-  const handleSubmit = (event) => {
+  const handleFormValidation = (event) => {
     event.preventDefault();
+
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
     setValidated(true);
+  };
 
+  async function handleNewsletterFetch(event) {
+    event.preventDefault();
     // POST NEWLSETTER REQUEST
     const postOptions = {
       method: "POST",
@@ -28,13 +33,25 @@ const Newsletter = () => {
         email: email,
       }),
     };
-    // fetch(`https://kropp-gym.vercel.app/newsletter`, postOptions)
-    fetch("https://kropp-gym.vercel.app/newsletter", postOptions)
-      .then((res) => res.json())
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
+    try {
+      const fetchPromiseResponse = await fetch(
+        `${URL}/newsletter`,
+        postOptions
+      );
+      if (!fetchPromiseResponse.ok) {
+        console.log(
+          `Problem with fetching from server: ${fetchPromiseResponse.status}`
+        );
+      }
+      const fetchJson = await fetchPromiseResponse.json();
+      console.log(fetchJson);
+    } catch {
+      (err) => {
+        console.log(`FETCH FAILED: ${err}`);
+      };
+    }
+  }
 
   return (
     <section className="home_newsletter pt-5 ">
@@ -47,7 +64,9 @@ const Newsletter = () => {
             <Form
               noValidate
               validated={validated}
-              onSubmit={handleSubmit}
+              onSubmit={(event) => {
+                handleFormValidation(event);
+              }}
             >
               <Form.Group as={Col}>
                 <Form.Label htmlFor="email">

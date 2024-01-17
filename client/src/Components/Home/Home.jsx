@@ -12,8 +12,8 @@ const Home = ({ cart, cartLength, items, handleCartIncrease }) => {
   Home.propTypes = {
     cartLength: PropTypes.number.isRequired,
     handleCartIncrease: PropTypes.func.isRequired,
-    cart: PropTypes.arrayOf.isRequired,
-    items: PropTypes.arrayOf.isRequired,
+    cart: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
   };
 
   // eslint-disable-next-line no-unused-vars

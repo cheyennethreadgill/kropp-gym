@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col, Container, Button, Form } from "react-bootstrap";
-import MainNav from "../Global/MainNav";
-import PageHeaders from "../Global/PageHeaders";
-import Footer from "../Global/Footer";
+import { Row, Col, Container } from "react-bootstrap";
 
 let dateObj = new Date();
 let year = dateObj.getFullYear();
@@ -10,9 +6,7 @@ let month = dateObj.getMonth();
 let day = dateObj.getDay();
 
 const OrderDetails = ({ cart, grandTotal }) => {
-  const [dayA, setDay] = useState(0);
   let fullDate = `${year}-${month + 1}-${day}`;
-  console.log(fullDate);
 
   return (
     <section className="bg-dark pb-5 mb-5 order">

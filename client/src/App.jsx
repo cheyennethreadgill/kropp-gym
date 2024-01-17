@@ -1,13 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import Rout from "./Components/Global/Rout";
+import Rout from './Components/Global/Rout';
 import products from "./data/products";
 
 const App = () => {
+  let dateObj = new Date();
+  let year = dateObj.getFullYear();
+  let month = dateObj.getMonth();
+  let day = dateObj.getDate();
+
+  const finalMonth = () => {
+    if ((month <= 10) & (month === 0)) {
+      return `0${month + 1}`;
+    } else {
+      return month;
+    }
+  };
+  const finalDay = () => {
+    if (day <= 10) {
+      return `0${day}`;
+    } else {
+      return day;
+    }
+  };
+
+  let date = `${year}-${finalMonth()}-${finalDay()}`;
+
   const [cart, setCart] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(products);
+
   const darkMode = true;
 
   // ----------------------------------------------------------------------------Remove Item
@@ -99,6 +122,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Rout
+        date={date}
         removeItem={removeItem}
         decreaseQty={decreaseQty}
         increaseQty={increaseQty}

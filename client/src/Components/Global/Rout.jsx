@@ -18,6 +18,7 @@ import Cart from "../Cart/Cart";
 // });
 
 const Rout = ({
+  date,
   darkMode,
   cartLength,
   handleCartIncrease,
@@ -33,13 +34,13 @@ const Rout = ({
     darkMode: PropTypes.bool.isRequired,
     cartLength: PropTypes.number.isRequired,
     handleCartIncrease: PropTypes.func.isRequired,
-    cart: PropTypes.arrayOf.isRequired,
-    setCart: PropTypes.arrayOf.isRequired,
+    cart: PropTypes.array.isRequired,
+    setCart: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
     decreaseQty: PropTypes.func.isRequired,
     increaseQty: PropTypes.func.isRequired,
-    grandTotal: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf.isRequired,
+    grandTotal: PropTypes.number.isRequired,
+    items: PropTypes.array.isRequired,
   };
   return (
     <Routes>
@@ -102,6 +103,7 @@ const Rout = ({
         path="/Checkout"
         element={
           <Checkout
+            date={date}
             cart={cart}
             items={items}
             setCart={setCart}
@@ -118,6 +120,7 @@ const Rout = ({
         path="/order-details"
         element={
           <OrderDetails
+            date={date}
             cart={cart}
             items={items}
             setCart={setCart}

@@ -1,4 +1,4 @@
-import { Row, Col, Container, Form } from "react-bootstrap";
+import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -85,18 +85,22 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
     );
   };
 
-  const BillingDetails = (FName, LName, email, notes) => {
+  const BillingDetails = () => {
     const [validated, setValidated] = useState(false);
     let navigate = useNavigate();
-    // const URL = "http://localhost:3001";
+    const URL = "http://localhost:8080";
 
     // SUBMIT AND ADD ORDER TO DATABASE
-    const handleSubmit = (event) => {
+    async function handleSubmit(event) {
       event.preventDefault();
 
       // POST ORDER REQUEST
       const postOptions = {
         method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "*",
+        },
         body: JSON.stringify({
           FName: FName,
           LName: LName,
@@ -106,12 +110,26 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
           notes: notes,
         }),
       };
-      fetch("https://kropp-gym.vercel.app/customerorder", postOptions)
-        .then((res) => res.json())
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+
+      try {
+        const fetchPromiseResponse = await fetch(
+          `${URL}/customerorder`,
+          postOptions
+        );
+        if (!fetchPromiseResponse.ok) {
+          console.log(
+            `Problem with fetching from server: ${fetchPromiseResponse.status}`
+          );
+        }
+        const jsonPromiseResponse = await fetchPromiseResponse.json();
+
+        console.log(jsonPromiseResponse);
+      } catch {
+        (err) => {
+          console.log(`FETCH FAILED: ${err}`);
+        };
+      }
+    }
     return (
       <section className="bg-dark pt-5 ">
         <Container>
@@ -214,7 +232,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                   </Form.Group>
                 </Col>
               </Row>
-              <Link
+              <Button
                 onClick={(e) => {
                   handleSubmit(e);
                   setClicked(true);
@@ -222,7 +240,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                 className="btn btn-light mt-3 pe-4"
               >
                 Place Order
-              </Link>
+              </Button>
             </Form>
           </Row>
         </Container>
