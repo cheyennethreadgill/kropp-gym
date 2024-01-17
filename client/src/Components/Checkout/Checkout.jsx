@@ -88,7 +88,6 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
   const BillingDetails = () => {
     const [validated, setValidated] = useState(false);
     let navigate = useNavigate();
-    const URL = "http://localhost:8080";
 
     // SUBMIT AND ADD ORDER TO DATABASE
     async function handleSubmit(event) {
@@ -113,7 +112,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
 
       try {
         const fetchPromiseResponse = await fetch(
-          `${URL}/customerorder`,
+          "https://kropp-gym-api.vercel.app/customerorder",
           postOptions
         );
         if (!fetchPromiseResponse.ok) {

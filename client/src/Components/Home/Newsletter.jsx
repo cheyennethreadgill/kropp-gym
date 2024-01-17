@@ -6,7 +6,6 @@ import HeaderAccent from "../Global/headerAccent";
 const Newsletter = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
-  const URL = "http://localhost:8080";
 
   const handleFormValidation = (event) => {
     event.preventDefault();
@@ -36,7 +35,7 @@ const Newsletter = () => {
 
     try {
       const fetchPromiseResponse = await fetch(
-        `${URL}/newsletter`,
+        "https://kropp-gym-api.vercel.app/newsletter",
         postOptions
       );
       if (!fetchPromiseResponse.ok) {
