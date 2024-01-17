@@ -35,7 +35,6 @@ app.get("/", (req, res) => {
       res.json(result);
     }
   });
-  res.end();
 });
 // handles get request for customer order info
 app.get("/customerorder", (req, res) => {
@@ -48,7 +47,6 @@ app.get("/customerorder", (req, res) => {
       res.json(result);
     }
   });
-  res.end();
 });
 // handles get request for customer newsletter
 app.get("/newsletter", (req, res) => {
@@ -63,7 +61,6 @@ app.get("/newsletter", (req, res) => {
       );
     }
   });
-  res.end();
 });
 
 // INSERT INTO CUSTOMER ORDER TABLE
@@ -111,7 +108,6 @@ app.post("/newsletter", (req, res) => {
         itemAdded: req.body,
       });
     }
-    res.end();
   });
   console.log("Post result ran.");
 });
