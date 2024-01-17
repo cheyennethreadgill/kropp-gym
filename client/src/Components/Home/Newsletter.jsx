@@ -20,7 +20,6 @@ const Newsletter = () => {
   };
 
   async function handleNewsletterFetch(event) {
-    event.preventDefault();
     // POST NEWLSETTER REQUEST
     const postOptions = {
       method: "POST",

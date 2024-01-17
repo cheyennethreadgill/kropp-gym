@@ -56,9 +56,11 @@ app.get("/newsletter", (req, res) => {
     if (err) {
       throw err;
     } else {
-      return res.end(
-        `${JSON.stringify(result)} news post server request working`
-      );
+      res.json({
+        status: "success",
+        message: "Email added successfully.",
+        itemAdded: req.body,
+      });
     }
   });
 });
