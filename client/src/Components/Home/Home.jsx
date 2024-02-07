@@ -8,7 +8,16 @@ import HomeTrainer from "./HomeTrainer";
 import Footer from "../Global/Footer";
 import Quotes from "./Quotes";
 
-const Home = ({ cart, cartLength, items, handleCartIncrease }) => {
+const Home = ({
+  URL,
+  handleFetchPromiseError,
+  handleJsonPromiseResponseLog,
+  handleFetchError,
+  cart,
+  cartLength,
+  items,
+  handleCartIncrease,
+}) => {
   Home.propTypes = {
     cartLength: PropTypes.number.isRequired,
     handleCartIncrease: PropTypes.func.isRequired,
@@ -36,7 +45,12 @@ const Home = ({ cart, cartLength, items, handleCartIncrease }) => {
         cartTotal={increase}
         cart={cart}
       />
-      <Footer />
+      <Footer
+        URL={URL}
+        handleFetchPromiseError={handleFetchPromiseError}
+        handleJsonPromiseResponseLog={handleJsonPromiseResponseLog}
+        handleFetchError={handleFetchError}
+      />
     </section>
   );
 };

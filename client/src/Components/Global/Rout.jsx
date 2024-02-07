@@ -18,6 +18,10 @@ import Cart from "../Cart/Cart";
 // });
 
 const Rout = ({
+  URL,
+  handleFetchPromiseError,
+  handleJsonPromiseResponseLog,
+  handleFetchError,
   date,
   darkMode,
   cartLength,
@@ -75,6 +79,10 @@ const Rout = ({
         path="/"
         element={
           <Home
+            URL={URL}
+            handleFetchPromiseError={handleFetchPromiseError}
+            handleJsonPromiseResponseLog={handleJsonPromiseResponseLog}
+            handleFetchError={handleFetchError}
             handleCartIncrease={handleCartIncrease}
             items={items}
             darkMode={darkMode}
@@ -103,6 +111,7 @@ const Rout = ({
         path="/Checkout"
         element={
           <Checkout
+            URL={URL}
             date={date}
             cart={cart}
             items={items}

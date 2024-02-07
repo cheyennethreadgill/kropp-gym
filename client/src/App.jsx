@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import Rout from './Components/Global/Rout';
+import Rout from "./Components/Global/Rout";
 import products from "./data/products";
 
 const App = () => {
@@ -60,9 +60,7 @@ const App = () => {
     if (existingProduct) {
       setCart(
         cart.map((item) => {
-          return item.id === prod.id
-            ? { ...existingProduct, quantity: existingProduct.quantity + 1 }
-            : item;
+          return item.id === prod.id ? { ...existingProduct, quantity: existingProduct.quantity + 1 } : item;
         })
       );
     }
@@ -119,9 +117,30 @@ const App = () => {
     }
   };
 
+  // const URL = "http://localhost:3001";
+  const URL = "https://kropp-gym-api.vercel.app/";
+
+  // ERROR HANDLING
+  const handleFetchPromiseError = (response) => {
+    if (!response.ok) {
+      console.log(`Something went wrong with fetch from server ${response.status}`);
+    }
+  };
+  const handleJsonPromiseResponseLog = (response) => {
+    response.then((res) => {
+      console.log(res);
+    });
+  };
+  const handleFetchError = (err) => {
+    console.log(`FETCH FAILED: ${err}`);
+  };
   return (
     <BrowserRouter>
       <Rout
+        URL={URL}
+        handleFetchPromiseError={handleFetchPromiseError}
+        handleJsonPromiseResponseLog={handleJsonPromiseResponseLog}
+        handleFetchError={handleFetchError}
         date={date}
         removeItem={removeItem}
         decreaseQty={decreaseQty}

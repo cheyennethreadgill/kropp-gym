@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 import logo from "../../images/Global/logo.png.webp";
 import Socials from "./socials";
 
-const Footer = () => {
+const Footer = ({ URL, handleFetchPromiseError, handleJsonPromiseResponseLog, handleFetchError }) => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
-  // const URL = "http://localhost:3001";
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -30,15 +29,16 @@ const Footer = () => {
         email: email,
       }),
     };
-    fetch(`https://kropp-gym.vercel.app/newsletter`, postOptions)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
+    try {
+      const response = await fetch(`${URL}newsletter`, postOptions);
+      handleFetchPromiseError(response);
+      const json = await response.json();
+      handleJsonPromiseResponseLog(json);
+    } catch {
+      (err) => handleFetchError(err);
+    }
+  }
 
   return (
     <footer className="footer bg-primary text-light">
@@ -64,8 +64,7 @@ const Footer = () => {
             sm="12"
           >
             <h5 className="fw-light ">
-              Please feel free to send us an e-mail at kropp@qodeinteractive.com
-              for any additional inquiries
+              Please feel free to send us an e-mail at kropp@qodeinteractive.com for any additional inquiries
             </h5>
           </Col>
           <Col
@@ -74,8 +73,7 @@ const Footer = () => {
           >
             <h3 className="fs-4 fw-bold">About</h3>
             <p className="text-light">
-              Shape up your site with Kropp, a theme especially made for fitness
-              & gym websites.
+              Shape up your site with Kropp, a theme especially made for fitness & gym websites.
             </p>
           </Col>
           <Col
@@ -134,9 +132,7 @@ const Footer = () => {
                       </div>
                     </div>
                     <Form.Text>
-                      <p className="fw-semibold fs-6">
-                        Subscribe to our newsletter
-                      </p>
+                      <p className="fw-semibold fs-6">Subscribe to our newsletter</p>
                     </Form.Text>
                   </Form.Group>
                 </Form>

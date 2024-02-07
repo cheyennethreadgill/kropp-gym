@@ -75,8 +75,7 @@ app.post("/customerorder", (req, res) => {
   let date = req.body.date;
   let notes = req.body.notes;
 
-  let sqlCustomer =
-    "INSERT INTO customerorder (customerID, firstName, lastName, email, total, date, notes) VALUES (?)";
+  let sqlCustomer = "INSERT INTO customerorder (customerID, firstName, lastName, email, total, date, notes) VALUES (?)";
   let vals = [customerID, FName, LName, email, total, date, notes];
 
   db.query(sqlCustomer, [vals], (err, results) => {

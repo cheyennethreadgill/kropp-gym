@@ -8,7 +8,7 @@ import MainNav from "../Global/MainNav";
 import Footer from "../Global/Footer";
 import OrderDetails from "./OrderDetails";
 
-const Checkout = ({ date, cartLength, cart, grandTotal }) => {
+const Checkout = ({ URL, date, cartLength, cart, grandTotal }) => {
   Checkout.propTypes = {
     cart: PropTypes.array,
     cartLength: PropTypes.number.isRequired,
@@ -69,9 +69,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                       <h4 className="fw-normal">Total</h4>
                     </Col>
                     <Col lg="4">
-                      <h5 className="fw-normal fs-5">
-                        ${grandTotal.toFixed(2)}
-                      </h5>
+                      <h5 className="fw-normal fs-5">${grandTotal.toFixed(2)}</h5>
                     </Col>
                   </Row>
 
@@ -111,14 +109,9 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
       };
 
       try {
-        const fetchPromiseResponse = await fetch(
-          "https://kropp-gym-api.vercel.app/customerorder",
-          postOptions
-        );
+        const fetchPromiseResponse = await fetch(`${URL}customerorder`, postOptions);
         if (!fetchPromiseResponse.ok) {
-          console.log(
-            `Problem with fetching from server: ${fetchPromiseResponse.status}`
-          );
+          console.log(`Problem with fetching from server: ${fetchPromiseResponse.status}`);
         }
         const jsonPromiseResponse = await fetchPromiseResponse.json();
 
@@ -159,9 +152,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                       }}
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">
-                      Please provide first name.
-                    </Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Please provide first name.</Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group
                     md="6"
@@ -180,9 +171,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                     />
 
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">
-                      Please provide last name.
-                    </Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Please provide last name.</Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group
                     md="6"
@@ -199,9 +188,7 @@ const Checkout = ({ date, cartLength, cart, grandTotal }) => {
                       }}
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a valid email address.
-                    </Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Please provide a valid email address.</Form.Control.Feedback>
                   </Form.Group>
                 </Col>
 
