@@ -54,7 +54,7 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
           return (
             <Carousel.Item
               key={img.id}
-              interval={4500}
+              interval={4100}
             >
               <Image
                 fluid
