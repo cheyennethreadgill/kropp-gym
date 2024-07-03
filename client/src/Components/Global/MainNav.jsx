@@ -8,7 +8,9 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Logo from "../../images/Global/logo.png.webp";
 
-const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
+const MainNav = ({ index, background, color, darkMode, cartLength }) => {
+  console.log(color);
+
   MainNav.propTypes = {
     darkMode: PropTypes.bool,
     cartLength: PropTypes.number.isRequired,
@@ -18,7 +20,7 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
       <Navbar
         expand="lg"
         bg={darkMode ? "dark" : "none"}
-        data-bs-theme={darkMode ? "dark" : "light"}
+        data-bs-theme={darkMode ? "dark" : background}
         className={darkMode ? "main-nav py-2 position-initial z-3 w-100 " : "main-nav py-2 position-absolute z-3 w-100"}
       >
         <Container
@@ -34,7 +36,7 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
               src={Logo}
               width="150px"
               height="100%"
-              className={darkMode ? "main-nav_logo_light " : "main-nav_logo_dark "}
+              className={color === "light" ? "main-nav_logo_light" : "main-nav_logo_dark"}
             />
           </Navbar.Brand>
 
@@ -72,7 +74,11 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
             <Nav className="fs-7 letter-spacing-1 fw-bold main-nav py-4 gap-5 text-uppercase">
               <Link
                 to="/"
-                className="d-flex justify-content-between"
+                className={
+                  color === "light"
+                    ? "d-flex justify-content-between text-light"
+                    : "d-flex justify-content-between text-dark"
+                }
               >
                 Home
                 <span>
@@ -82,7 +88,11 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
 
               <Link
                 to="/Team"
-                className="d-flex justify-content-between"
+                className={
+                  color === "light"
+                    ? "d-flex justify-content-between text-light"
+                    : "d-flex justify-content-between text-dark"
+                }
               >
                 Team
                 <span>
@@ -92,7 +102,11 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
 
               <Link
                 to="/PricingPlan"
-                className="d-flex justify-content-between"
+                className={
+                  color === "light"
+                    ? "d-flex justify-content-between text-light"
+                    : "d-flex justify-content-between text-dark"
+                }
               >
                 Pricing
                 <span>
@@ -102,7 +116,11 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
 
               <Link
                 to="/Contact"
-                className="d-flex justify-content-between"
+                className={
+                  color === "light"
+                    ? "d-flex justify-content-between text-light"
+                    : "d-flex justify-content-between text-dark"
+                }
               >
                 Contact
                 <span>
@@ -114,7 +132,11 @@ const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
             <Row>
               <Link
                 to="/Cart"
-                className="d-flex justify-content-between fw-semibold"
+                className={
+                  color === "light"
+                    ? "d-flex justify-content-between fw-semibold text-light"
+                    : "d-flex justify-content-between fw-semibold text-dark"
+                }
               >
                 Cart ({cartLength})
                 <span>

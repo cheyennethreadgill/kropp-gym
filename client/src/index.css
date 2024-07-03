@@ -12363,6 +12363,7 @@ h6,
 .home_header .carousel-indicators [data-bs-target] {
   width: 10px;
   height: 10px;
+  border: 0 !important;
 }
 .home_header .carousel .home_header_carousel-caption_container {
   height: 100%;

@@ -23,14 +23,29 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
   };
 
   return (
-    <section className="home_header bg-dark ">
-      <MainNav
-        cartLength={cartLength}
-        cart={cart}
-        style={{ color: headerImgs[index].imgColor === "dark" ? "white" : "black" }}
-      />
+    <section className="home_header bg-dark">
+      {headerImgs[index].imgColor === "light" ? (
+        <MainNav
+          cartLength={cartLength}
+          cart={cart}
+          background="transparent"
+          color="dark"
+          darkMode={false}
+          index={index}
+        />
+      ) : (
+        <MainNav
+          cartLength={cartLength}
+          cart={cart}
+          index={index}
+          background="transparent"
+          color="light"
+          darkMode={false}
+        />
+      )}
       <Carousel
-        data-bs-theme="dark"
+        fade
+        data-bs-theme={headerImgs[index].imgColor === "dark" ? "light" : "dark"}
         className="home_header_carousel"
         activeIndex={index}
         onSelect={handleSelect}
@@ -39,7 +54,7 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
           return (
             <Carousel.Item
               key={img.id}
-              interval={1000000}
+              interval={4500}
             >
               <Image
                 fluid
@@ -56,17 +71,22 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
                     src={sliderlogo}
                     alt="logo"
                     className="px-3 home_header_carousel_logo animate__animated animate__fadeIn animate__delay-1s"
+                    style={{ filter: headerImgs[index].imgColor === "dark" ? "invert(1)" : "none" }}
                   />
                   <Row className="home_header_carousel-cta-container justify-content-center gap-4 mt-4">
                     <a
                       href="/PricingPlan"
-                      className="mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-1s"
+                      className={
+                        headerImgs[index].imgColor === "dark"
+                          ? "mt-3 btn-light animate__animated animate__fadeInUp animate__delay-1s"
+                          : "mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-1s"
+                      }
                     >
                       View More
                       <div className="button-container">
                         <Button
                           aria-label="View More Pricing Plans"
-                          variant="outline-dark"
+                          variant={headerImgs[index].imgColor === "dark" ? "outline-light" : "outline-dark"}
                         >
                           <span />
                         </Button>
@@ -75,13 +95,17 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
 
                     <a
                       href="/Checkout"
-                      className="mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-2s"
+                      className={
+                        headerImgs[index].imgColor === "dark"
+                          ? "mt-3 btn-light animate__animated animate__fadeInUp animate__delay-2s"
+                          : "mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-2s"
+                      }
                     >
                       Checkout
                       <div className="button-container">
                         <Button
                           aria-label="Check Out"
-                          variant="outline-dark"
+                          variant={headerImgs[index].imgColor === "dark" ? "outline-light" : "outline-dark"}
                         >
                           <span />
                         </Button>
