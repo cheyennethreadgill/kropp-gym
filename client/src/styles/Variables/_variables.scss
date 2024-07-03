@@ -1,9 +1,11 @@
 // Typography-----------------------
 
 // variables
-$primary: #000000;
+$primary: #000;
 $secondary: #0a0a0a;
 $dark: #131619;
+$darker: #313940;
+$darkest: #131619;
 $light: #eff0f3;
 $danger: #dc3232;
 $warning: #ffb900;
@@ -12,13 +14,67 @@ $warning: #ffb900;
 $color-body: #404040b3;
 $color-input-light: 1px solid #ffffff;
 $color-input: 1px solid #d5d5d5;
+$color-input-medium: 1px solid #969696;
 $color-input-dark: 1px solid $dark;
+$color-input-darker: 1px solid $darker;
 $color-border: #4040403d;
+
+// fomr ctrl btn styling
+$border_dormant: $color-input-medium;
+$border_dormant-dark: $color-input-dark;
+$border_dormant-darker: $color-input-darker;
+$border_dormant-darker: $color-input-darker;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-// class overrides----------------
+// *******************************************************class overrides
+// -------------------------MIXINS--------------------------
+@mixin outline-accents($pr, $pl) {
+  padding: 1.1rem $pr 1.1rem $pl !important;
+  border-radius: 3em;
+}
+
+// arrow form ctrl btn span
+@mixin form-control-btn-arrow($invertNum) {
+  content: url('data:image/svg+xml,<svg class="qodef-svg--button-arrow" xmlns="http://www.w3.org/2000/svg" width="19.282" height="26.788" viewBox="0 0 19.282 26.788" ><g transform="translate(0.354 0)"><path d="M0,0V26.27" transform="translate(9.382 0)" fill="none" stroke="white" stroke-width="1" ></path><path d="M13.135,13.135H0V0" transform="translate(0 16.793) rotate(-45)" fill="none" stroke="white" stroke-width="1" ></path></g></svg>');
+  background-color: transparent;
+  display: inline-block;
+  cursor: pointer;
+  transform: rotate(225deg);
+  transition: all ease-out 300ms;
+  filter: invert($invertNum);
+  background-color: transparent;
+
+  &:hover {
+    filter: invert($invertNum);
+  }
+}
+
+@mixin form-outline($color) {
+  background-color: transparent;
+  position: relative;
+  color: $color;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rem;
+  padding: 0.8125em 1.2em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.065rem;
+}
+
 // Global---------------------------
+.fs-7 {
+  font-size: 0.8125rem;
+}
+.letter-spacing-1 {
+  letter-spacing: 1rem;
+}
+
 .container {
   padding: 0 1.5em;
 }
@@ -67,18 +123,21 @@ $color-border: #4040403d;
   &-icon {
     width: 1em;
     height: 1.7em;
+    filter: invert(1);
   }
 }
 // forms------------------------------------------------------------------------------------------------
 
 // Form Control---------------------------------
-.form-control.is-valid, .was-validated .form-control:valid {
+.form-control.is-valid,
+.was-validated .form-control:valid {
   background-image: none;
 }
 .was-validated .form-control:invalid {
   background-image: none;
 }
-.form-control.is-valid, .was-validated .form-control:valid {
+.form-control.is-valid,
+.was-validated .form-control:valid {
   background-image: none;
 }
 .input-container {
@@ -88,8 +147,9 @@ $color-border: #4040403d;
   position: absolute;
   top: 0;
   right: -1px;
-  width: 50px;
-  height: 50px;
+  width: 3.4rem;
+  height: 100%;
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 300ms;
 
   button {
     &:hover {
@@ -97,42 +157,41 @@ $color-border: #4040403d;
       background-color: transparent;
     }
   }
+
+  &:hover {
+    width: 3.4rem;
+    height: 100%;
+    transform: rotate(45deg);
+    transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 300ms;
+  }
 }
 
 .form-control {
   width: 100% !important;
-  @extend .btn-outline-dark;
-  font-size: 1em;
+  @include form-outline($dark);
+  @include outline-accents(0.375rem, 1.875rem);
   position: relative;
   color: $dark;
+  border: $color-input-medium;
 
-  &::placeholder {
-    font-weight: 400;
-    text-transform: uppercase;
+  &:hover {
+    border: $border_dormant-dark;
   }
-
   &:focus {
     background: none;
     box-shadow: none;
-    border: $color-input-dark;
-    color: $dark;
+    border: $border_dormant-dark;
   }
-
-  &:hover {
-    color: $dark;
-  }
-}
-.form-control-light {
-  @extend .btn-outline-dark;
-  font-size: 1em;
-  color: white;
-
   &::placeholder {
     font-weight: 400;
     text-transform: uppercase;
-    opacity: 0.3;
-    color: $light;
   }
+}
+.form-control-light {
+  @include form-outline($dark);
+  @include outline-accents(0.375rem, 1.875rem);
+  color: white;
+  border: $border_dormant-darker;
 
   &:hover {
     color: $light !important;
@@ -140,87 +199,38 @@ $color-border: #4040403d;
   &:focus {
     box-shadow: none;
     border: $color-input-light;
+    color: $light;
+  }
+  &::placeholder {
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.3;
+    color: $light;
   }
 }
 
 //--------------------------------------------- Button
 
 .btn-outline-light {
-  background-color: transparent;
-  position: relative;
-  color: $light !important;
-  width: inherit;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include form-outline($light);
 
   span {
-    content: url('data:image/svg+xml,<svg class="qodef-svg--button-arrow" xmlns="http://www.w3.org/2000/svg" width="19.282" height="26.788" viewBox="0 0 19.282 26.788" ><g transform="translate(0.354 0)"><path d="M0,0V26.27" transform="translate(9.382 0)" fill="none" stroke="white" stroke-width="1" ></path><path d="M13.135,13.135H0V0" transform="translate(0 16.793) rotate(-45)" fill="none" stroke="white" stroke-width="1" ></path></g></svg>');
-    background-color: transparent;
-    display: inline-block;
-    cursor: pointer;
-    transform: rotate(225deg);
-    transition: all ease-out 300ms;
-    color: $light !important;
-    background-color: transparent;
-
-    &:hover {
-      color: $light !important;
-      background-color: transparent;
-      transform: rotate(270deg);
-      transition: all ease-in 300ms;
-    }
+    @include form-control-btn-arrow(0);
   }
 }
 .btn-outline-dark {
-  background-color: transparent;
-  position: relative;
-  color: $dark;
-  width: inherit;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include form-outline($dark);
 
   span {
-    content: url('data:image/svg+xml,<svg class="qodef-svg--button-arrow" xmlns="http://www.w3.org/2000/svg" width="19.282" height="26.788" viewBox="0 0 19.282 26.788" ><g transform="translate(0.354 0)"><path d="M0,0V26.27" transform="translate(9.382 0)" fill="none" stroke="currentColor" stroke-width="1" ></path><path d="M13.135,13.135H0V0" transform="translate(0 16.793) rotate(-45)" fill="none" stroke="currentColor" stroke-width="1" ></path></g></svg>');
-    background-color: transparent;
-    display: inline-block;
-    cursor: pointer;
-    transform: rotate(225deg);
-    transition: all ease-out 300ms;
-    color: $dark !important;
-    background-color: transparent;
-
-    &:hover {
-      color: $dark !important;
-      background-color: transparent;
-      transform: rotate(270deg);
-      transition: all ease-in 300ms;
-    }
-  }
-}
-.btn,
-.form-control {
-  border-radius: 1.875em;
-  padding: 0.8125rem 1.2em;
-  font-size: 1em;
-  font-weight: 700;
-}
-.form-control,
-.btn-dark,
-.btn-light {
-  &:hover {
-    color: none;
+    @include form-control-btn-arrow(100);
   }
 }
 
 .btn-light {
   position: relative;
   @extend .btn;
-  @extend .btn-outline-light;
-  padding: 0.8125rem 4.2rem 0.8125rem 1.2em;
+  @include form-outline($light);
+  @include outline-accents(4.2rem, 1.2rem);
   width: fit-content;
 
   &:hover {
@@ -232,8 +242,8 @@ $color-border: #4040403d;
 .btn-dark {
   position: relative;
   @extend .btn;
-  @extend .btn-outline-dark;
-  padding: 0.8125rem 4.2rem 0.8125rem 1.2rem;
+  @include form-outline($dark);
+  @include outline-accents(5.5rem, 2rem);
   width: fit-content;
 
   &:hover {

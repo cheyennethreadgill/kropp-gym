@@ -44,12 +44,10 @@ const Contact = ({ cartLength }) => {
               lg="4"
               className="ms-lg-5"
             >
-              <h3 className="pb-3 fs-1 fw-bold">
-                Contact us and find your nearest gym
-              </h3>
+              <h3 className="pb-3 fs-1 fw-bold">Contact us and find your nearest gym</h3>
               <p className="text-light">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Ratione omnis sapiente, alias praesentium inventore itaque.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione omnis sapiente, alias praesentium
+                inventore itaque.
               </p>
             </Col>
             <Col
@@ -67,7 +65,7 @@ const Contact = ({ cartLength }) => {
                     md="6"
                     controlId="validationCustom01"
                   >
-                    <Form.Label>First name</Form.Label>
+                    <Form.Label className="invisible">First name</Form.Label>
                     <Form.Control
                       className="form-control-light"
                       required
@@ -81,7 +79,7 @@ const Contact = ({ cartLength }) => {
                     md="6"
                     controlId="validationCustom02"
                   >
-                    <Form.Label>Last name</Form.Label>
+                    <Form.Label className="invisible">Last name</Form.Label>
                     <Form.Control
                       className="form-control-light"
                       required
@@ -97,7 +95,7 @@ const Contact = ({ cartLength }) => {
                     controlId="validationCustom04"
                     className="mb-2"
                   >
-                    <Form.Label>Message</Form.Label>
+                    <Form.Label className="invisible">Message</Form.Label>
                     <Form.Control
                       className="form-control-light"
                       as="textarea"
@@ -105,23 +103,21 @@ const Contact = ({ cartLength }) => {
                       required
                       style={{ height: "200px" }}
                     />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a valid state.
-                    </Form.Control.Feedback>
+                    <Form.Control.Feedback type="invalid">Please provide a valid state.</Form.Control.Feedback>
                   </Form.Group>
                 </Row>
 
                 <a
                   href="/"
-                  aria-label="Send"
-                  className="mt-3 btn-light"
+                  aria-label="Submit contact information"
+                  className="mt-3 btn btn-light btn-outline-light"
                 >
                   Send
                   <div className="button-container">
                     <Button
-                      aria-label="Send"
+                      aria-label="Submit contact information"
                       type="submit"
-                      variant="outline-light"
+                      className="btn btn-outline-light"
                     >
                       <span />
                     </Button>

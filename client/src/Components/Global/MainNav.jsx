@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Logo from "../../images/Global/logo.png.webp";
 
-const MainNav = ({ darkMode, cartLength }) => {
+const MainNav = ({ carouselImgMode, darkMode, cartLength }) => {
   MainNav.propTypes = {
     darkMode: PropTypes.bool,
     cartLength: PropTypes.number.isRequired,
@@ -19,11 +19,7 @@ const MainNav = ({ darkMode, cartLength }) => {
         expand="lg"
         bg={darkMode ? "dark" : "none"}
         data-bs-theme={darkMode ? "dark" : "light"}
-        className={
-          darkMode
-            ? "main-nav py-4 position-initial z-3 w-100 "
-            : "main-nav py-4 position-absolute z-3 w-100"
-        }
+        className={darkMode ? "main-nav py-2 position-initial z-3 w-100 " : "main-nav py-2 position-absolute z-3 w-100"}
       >
         <Container
           fluid
@@ -38,9 +34,7 @@ const MainNav = ({ darkMode, cartLength }) => {
               src={Logo}
               width="150px"
               height="100%"
-              className={
-                darkMode ? "main-nav_logo_light " : "main-nav_logo_dark "
-              }
+              className={darkMode ? "main-nav_logo_light " : "main-nav_logo_dark "}
             />
           </Navbar.Brand>
 
@@ -63,7 +57,19 @@ const MainNav = ({ darkMode, cartLength }) => {
           />
 
           <Navbar.Collapse className="justify-content-between">
-            <Nav className="fw-semibold main-nav py-4 gap-3">
+            <Navbar.Brand
+              href="/"
+              className="opacity-0"
+            >
+              <Image
+                alt="Company Logo"
+                src={Logo}
+                width="0px"
+                height="100%"
+              />
+            </Navbar.Brand>
+
+            <Nav className="fs-7 letter-spacing-1 fw-bold main-nav py-4 gap-5 text-uppercase">
               <Link
                 to="/"
                 className="d-flex justify-content-between"
@@ -104,6 +110,7 @@ const MainNav = ({ darkMode, cartLength }) => {
                 </span>
               </Link>
             </Nav>
+
             <Row>
               <Link
                 to="/Cart"

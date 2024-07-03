@@ -30,14 +30,9 @@ const Newsletter = () => {
     };
 
     try {
-      const fetchPromiseResponse = await fetch(
-        "https://kropp-gym-api.vercel.app/newsletter",
-        postOptions
-      );
+      const fetchPromiseResponse = await fetch("https://kropp-gym-api.vercel.app/newsletter", postOptions);
       if (!fetchPromiseResponse.ok) {
-        console.log(
-          `Problem with fetching from server: ${fetchPromiseResponse.status}`
-        );
+        console.log(`Problem with fetching from server: ${fetchPromiseResponse.status}`);
       }
       const jsonPromiseResponse = await fetchPromiseResponse.json();
       console.log(jsonPromiseResponse);
@@ -79,6 +74,7 @@ const Newsletter = () => {
                 </Form.Label>
                 <Form.Group className="input-container">
                   <Form.Control
+                    className=""
                     required
                     name="email"
                     type="email"
@@ -88,15 +84,6 @@ const Newsletter = () => {
                       setEmail(e.target.value);
                     }}
                   />
-
-                  <Form.Text>
-                    <p className="fw-semibold fs-6">
-                      Subscribe to our newsletter
-                    </p>
-                  </Form.Text>
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid email address.
-                  </Form.Control.Feedback>
                   <div className="button-container">
                     <Button
                       name="Subscribe"
@@ -107,7 +94,11 @@ const Newsletter = () => {
                       <span />
                     </Button>
                   </div>
+                  <Form.Control.Feedback type="invalid">Please provide a valid email address.</Form.Control.Feedback>
                 </Form.Group>
+                <Form.Text>
+                  <p className="fw-semibold fs-6">Subscribe to our newsletter</p>
+                </Form.Text>
               </Form.Group>
             </Form>
           </Col>
@@ -116,13 +107,11 @@ const Newsletter = () => {
             className="ms-lg-5"
           >
             <h3 className="pb-3 fs-2 fw-bold">
-              GET IN SHAPE WITH OUR PRO TRAINERS. REACH YOUR BODY GOALS IN NO
-              TIME, CONTACT US
+              GET IN SHAPE WITH OUR PRO TRAINERS. REACH YOUR BODY GOALS IN NO TIME, CONTACT US
             </h3>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using distribution of letters, as opposed to using.
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using distribution of letters, as opposed to using.
             </p>
           </Col>
         </Row>

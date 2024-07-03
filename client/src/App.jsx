@@ -32,6 +32,7 @@ const App = () => {
   const [items, setItems] = useState(products);
 
   const darkMode = true;
+  const carouselImgMode = true;
 
   // ----------------------------------------------------------------------------Remove Item
   const removeItem = (id) => {
@@ -152,6 +153,7 @@ const App = () => {
         setCart={setCart}
         cartLength={cart.length}
         darkMode={darkMode}
+        carouselImgMode={carouselImgMode}
       />
     </BrowserRouter>
   );

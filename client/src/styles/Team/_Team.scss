@@ -13,6 +13,8 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      cursor: pointer;
+
       @include breakpoints-up(md) {
         flex-direction: column;
       }

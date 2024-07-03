@@ -17,6 +17,8 @@ const Home = ({
   cartLength,
   items,
   handleCartIncrease,
+  darkMode,
+  carouselImgMode,
 }) => {
   Home.propTypes = {
     cartLength: PropTypes.number.isRequired,
@@ -32,6 +34,8 @@ const Home = ({
   return (
     <section>
       <Header
+        darkMode={darkMode}
+        carouselImgMode={carouselImgMode}
         cartLength={cartLength}
         cart={cart}
       />

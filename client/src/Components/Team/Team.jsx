@@ -82,9 +82,7 @@ const Team = ({ cartLength }) => {
                   <div className="team_members_info_bio">
                     <h2 className="fw-bold m-0">{fname}</h2>
                     <h2 className="fw-bold m-0">{lname}</h2>
-                    <p className="text-light team_members_info_bio_position">
-                      {position}
-                    </p>
+                    <p className="text-light team_members_info_bio_position">{position}</p>
                   </div>
                   <div className="team_members_info_socials">
                     <span>
@@ -136,11 +134,9 @@ const Team = ({ cartLength }) => {
                 subscribe
               </h2>
               <Form.Text>
-                <h5 className="text-light fw-light mb-5">
-                  Find your perfect mentor! Join us!
-                </h5>
+                <h5 className="text-light fw-light mb-5">Find your perfect mentor! Join us!</h5>
               </Form.Text>
-              <Row className="gap-3 gap-lg-0 align-items-end">
+              <Row className="gap-3 gap-lg-0 justify-content-center align-items-end row">
                 <Col
                   lg="4"
                   md="12"
@@ -153,6 +149,7 @@ const Team = ({ cartLength }) => {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
+                    className="form-control-light"
                   />
                 </Col>
                 <Col

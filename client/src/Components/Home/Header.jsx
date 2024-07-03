@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Carousel from "react-bootstrap/Carousel";
 import { Button } from "react-bootstrap";
@@ -8,27 +9,37 @@ import sliderlogo from "../../images/Home/header/slider-logo.png.webp";
 import MainNav from "../Global/MainNav";
 import { Row, Col } from "react-bootstrap";
 
-const Header = ({ cartLength, cart }) => {
+const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
   Header.propTypes = {
     cart: PropTypes.array,
     cartLength: PropTypes.number.isRequired,
   };
 
+  // Controlled carousel
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
   return (
-    <section className="home_header bg-dark">
+    <section className="home_header bg-dark ">
       <MainNav
         cartLength={cartLength}
         cart={cart}
+        style={{ color: headerImgs[index].imgColor === "dark" ? "white" : "black" }}
       />
       <Carousel
         data-bs-theme="dark"
         className="home_header_carousel"
+        activeIndex={index}
+        onSelect={handleSelect}
       >
         {headerImgs.map((img) => {
           return (
             <Carousel.Item
               key={img.id}
-              interval={4500}
+              interval={1000000}
             >
               <Image
                 fluid
@@ -44,9 +55,9 @@ const Header = ({ cartLength, cart }) => {
                   <Image
                     src={sliderlogo}
                     alt="logo"
-                    className="px-3 home_header_carousel_logo animate__animated animate__fadeIn"
+                    className="px-3 home_header_carousel_logo animate__animated animate__fadeIn animate__delay-1s"
                   />
-                  <Row className="home_header_carousel-cta-container justify-content-center gap-4">
+                  <Row className="home_header_carousel-cta-container justify-content-center gap-4 mt-4">
                     <a
                       href="/PricingPlan"
                       className="mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-1s"
@@ -64,7 +75,7 @@ const Header = ({ cartLength, cart }) => {
 
                     <a
                       href="/Checkout"
-                      className="mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-1s"
+                      className="mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-2s"
                     >
                       Checkout
                       <div className="button-container">

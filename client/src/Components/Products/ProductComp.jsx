@@ -11,11 +11,15 @@ const ProductComp = ({ item, handleCartIncrease }) => {
   const { name, price, img, category } = item;
 
   return (
-    <Col className="pb-5 d-flex align-items-stretch" lg="3" md="6" sm="12">
+    <Col
+      className="pb-5 d-flex align-items-stretch"
+      lg="3"
+      md="6"
+      sm="12"
+    >
       <Card>
         <div className="home_shop_inner-overlay_container ">
           <Card.Img
-            
             alt={name}
             src={img}
             className="img-fluid"
@@ -25,7 +29,7 @@ const ProductComp = ({ item, handleCartIncrease }) => {
           <div className="home_shop_inner-overlay_container_body">
             <Card.Link>
               <Button
-                variant="outline-primary"
+                className="btn btn-outline btn-outline-dark"
                 // -------------------------------------------------------------is this correct?
                 name="Add to Cart"
                 title="Add To Cart"

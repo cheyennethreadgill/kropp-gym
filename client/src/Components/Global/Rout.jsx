@@ -33,6 +33,7 @@ const Rout = ({
   decreaseQty,
   increaseQty,
   grandTotal,
+  carouselImgMode,
 }) => {
   Rout.propTypes = {
     darkMode: PropTypes.bool.isRequired,
@@ -45,6 +46,7 @@ const Rout = ({
     increaseQty: PropTypes.func.isRequired,
     grandTotal: PropTypes.number.isRequired,
     items: PropTypes.array.isRequired,
+    carouselImgMode: PropTypes.string.isRequired,
   };
   return (
     <Routes>
@@ -86,6 +88,7 @@ const Rout = ({
             handleCartIncrease={handleCartIncrease}
             items={items}
             darkMode={darkMode}
+            carouselImgMode={carouselImgMode}
             cartLength={cartLength}
             cart={cart}
           />
