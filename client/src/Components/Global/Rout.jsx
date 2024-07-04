@@ -23,7 +23,7 @@ const Rout = ({
   handleJsonPromiseResponseLog,
   handleFetchError,
   date,
-  darkMode,
+
   cartLength,
   handleCartIncrease,
   items,
@@ -36,7 +36,6 @@ const Rout = ({
   carouselImgMode,
 }) => {
   Rout.propTypes = {
-    darkMode: PropTypes.bool.isRequired,
     cartLength: PropTypes.number.isRequired,
     handleCartIncrease: PropTypes.func.isRequired,
     cart: PropTypes.array.isRequired,
@@ -52,30 +51,15 @@ const Rout = ({
     <Routes>
       <Route
         path="/PricingPlan"
-        element={
-          <PricingPlan
-            darkMode={darkMode}
-            cartLength={cartLength}
-          />
-        }
+        element={<PricingPlan cartLength={cartLength} />}
       />
       <Route
         path="/Contact"
-        element={
-          <Contact
-            darkMode={darkMode}
-            cartLength={cartLength}
-          />
-        }
+        element={<Contact cartLength={cartLength} />}
       />
       <Route
         path="/Team"
-        element={
-          <Team
-            darkMode={darkMode}
-            cartLength={cartLength}
-          />
-        }
+        element={<Team cartLength={cartLength} />}
       />
       <Route
         path="/"
@@ -87,7 +71,6 @@ const Rout = ({
             handleFetchError={handleFetchError}
             handleCartIncrease={handleCartIncrease}
             items={items}
-            darkMode={darkMode}
             carouselImgMode={carouselImgMode}
             cartLength={cartLength}
             cart={cart}
@@ -101,7 +84,6 @@ const Rout = ({
             cart={cart}
             items={items}
             setCart={setCart}
-            darkMode={darkMode}
             cartLength={cartLength}
             removeItem={removeItem}
             decreaseQty={decreaseQty}
@@ -119,7 +101,6 @@ const Rout = ({
             cart={cart}
             items={items}
             setCart={setCart}
-            darkMode={darkMode}
             cartLength={cartLength}
             removeItem={removeItem}
             decreaseQty={decreaseQty}
@@ -136,7 +117,6 @@ const Rout = ({
             cart={cart}
             items={items}
             setCart={setCart}
-            darkMode={darkMode}
             cartLength={cartLength}
             grandTotal={grandTotal}
           />

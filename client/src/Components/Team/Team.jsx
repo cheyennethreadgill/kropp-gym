@@ -50,8 +50,9 @@ const Team = ({ cartLength }) => {
   return (
     <section className="team ">
       <MainNav
-        darkMode
+        darkMode={true}
         cartLength={cartLength}
+        navColor="light"
       />
       <PageHeadersInfo
         name="Our Team"

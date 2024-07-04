@@ -29,7 +29,7 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
           cartLength={cartLength}
           cart={cart}
           background="transparent"
-          color="dark"
+          navColor="dark"
           darkMode={false}
           index={index}
         />
@@ -39,7 +39,7 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
           cart={cart}
           index={index}
           background="transparent"
-          color="light"
+          navColor="light"
           darkMode={false}
         />
       )}
@@ -54,7 +54,7 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
           return (
             <Carousel.Item
               key={img.id}
-              interval={4100}
+              interval={4500}
             >
               <Image
                 fluid

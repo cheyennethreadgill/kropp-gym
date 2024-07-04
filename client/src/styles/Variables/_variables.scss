@@ -227,10 +227,9 @@ $border_dormant-darker: $color-input-darker;
 }
 
 .btn-light {
-  position: relative;
   @extend .btn;
   @include form-outline($light);
-  @include outline-accents(4.2rem, 1.2rem);
+  @include outline-accents(5.5rem, 2rem);
   width: fit-content;
 
   &:hover {
@@ -240,7 +239,6 @@ $border_dormant-darker: $color-input-darker;
   }
 }
 .btn-dark {
-  position: relative;
   @extend .btn;
   @include form-outline($dark);
   @include outline-accents(5.5rem, 2rem);
@@ -251,3 +249,9 @@ $border_dormant-darker: $color-input-darker;
     background-color: transparent;
   }
 }
+.btn {
+  &:hover {
+    background-color: transparent;
+  }
+}
+

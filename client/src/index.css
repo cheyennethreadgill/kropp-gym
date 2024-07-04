@@ -12118,7 +12118,6 @@ textarea.form-control-lg {
 }
 
 .btn-light {
-  position: relative;
   background-color: transparent;
   position: relative;
   color: #eff0f3;
@@ -12133,7 +12132,7 @@ textarea.form-control-lg {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.065rem;
-  padding: 1.1rem 4.2rem 1.1rem 1.2rem !important;
+  padding: 1.1rem 5.5rem 1.1rem 2rem !important;
   border-radius: 3em;
   width: fit-content;
 }
@@ -12144,7 +12143,6 @@ textarea.form-control-lg {
 }
 
 .btn-dark {
-  position: relative;
   background-color: transparent;
   position: relative;
   color: #131619;
@@ -12165,6 +12163,10 @@ textarea.form-control-lg {
 }
 .btn-dark:hover {
   color: #131619 !important;
+  background-color: transparent;
+}
+
+.btn:hover, .btn-light:hover, .btn-dark:hover {
   background-color: transparent;
 }
 

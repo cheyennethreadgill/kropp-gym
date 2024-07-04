@@ -31,7 +31,7 @@ const App = () => {
   // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(products);
 
-  const darkMode = true;
+
   const carouselImgMode = true;
 
   // ----------------------------------------------------------------------------Remove Item
@@ -152,7 +152,7 @@ const App = () => {
         cart={cart}
         setCart={setCart}
         cartLength={cart.length}
-        darkMode={darkMode}
+       
         carouselImgMode={carouselImgMode}
       />
     </BrowserRouter>

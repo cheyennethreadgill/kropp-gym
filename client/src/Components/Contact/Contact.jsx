@@ -25,8 +25,9 @@ const Contact = ({ cartLength }) => {
   return (
     <section className="contact">
       <MainNav
-        darkMode
+        darkMode={true}
         cartLength={cartLength}
+        navColor="light"
       />
       <PageHeadersInfo
         name="Contact Us"

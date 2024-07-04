@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -8,13 +9,26 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Logo from "../../images/Global/logo.png.webp";
 
-const MainNav = ({ index, background, color, darkMode, cartLength }) => {
-  console.log(color);
-
+const MainNav = ({ background, navColor, darkMode, cartLength }) => {
   MainNav.propTypes = {
     darkMode: PropTypes.bool,
     cartLength: PropTypes.number.isRequired,
   };
+  const [expanded, setExpanded] = useState(false);
+  const [mobileViewActive, setMobileViewActive] = useState(false);
+  const mobileView = window.matchMedia("(max-width: 600px)");
+
+  const handleMobileView = () => {
+    console.log(mobileViewActive);
+    console.log(window.innerWidth);
+    if (mobileView.matches) {
+      setMobileViewActive(true);
+    } else {
+      setMobileViewActive(false);
+    }
+  };
+  window.addEventListener("resize", handleMobileView, false);
+
   return (
     <section className="position-relative ">
       <Navbar
@@ -27,6 +41,7 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
           fluid
           className="main-nav_container"
         >
+          {/* desktop logo */}
           <Navbar.Brand
             href="/"
             className="d-none d-lg-block"
@@ -36,10 +51,17 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               src={Logo}
               width="150px"
               height="100%"
-              className={color === "light" ? "main-nav_logo_light" : "main-nav_logo_dark"}
+              className={
+                navColor === "light" && !darkMode
+                  ? "main-nav_logo_light"
+                  : "main-nav_logo_dark" && darkMode
+                  ? "main-nav_logo_light"
+                  : "main-nav_logo_dark"
+              }
             />
           </Navbar.Brand>
 
+          {/* Mobile logo */}
           <Navbar.Brand
             href="/"
             className="d-lg-none"
@@ -49,7 +71,13 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               src={Logo}
               width="120px"
               height="100%"
-              className="main-nav_mobile_logo "
+              className={
+                navColor === "light" && !darkMode
+                  ? "main-nav_mobile_logo main-nav_logo_light"
+                  : "main-nav_mobile_logo main-nav_logo_dark" && darkMode
+                  ? "main-nav_mobile_logo main-nav_logo_light"
+                  : "main-nav_mobile_logo main-nav_logo_dark"
+              }
             />
           </Navbar.Brand>
 
@@ -58,7 +86,7 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
             className=" main-nav_toggle"
           />
 
-          <Navbar.Collapse className="justify-content-between">
+          <Navbar.Collapse className="justify-content-between  mb-4">
             <Navbar.Brand
               href="/"
               className="opacity-0"
@@ -71,13 +99,16 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               />
             </Navbar.Brand>
 
-            <Nav className="fs-7 letter-spacing-1 fw-bold main-nav py-4 gap-5 text-uppercase">
+            <Nav className="fs-7 letter-spacing-1 fw-bold main-nav py-5 gap-5 text-uppercase">
               <Link
+                activeKey="/home"
                 to="/"
                 className={
-                  color === "light"
+                  navColor === "light"
                     ? "d-flex justify-content-between text-light"
-                    : "d-flex justify-content-between text-dark"
+                    : "d-flex justify-content-between text-dark" &&
+                      mobileViewActive &&
+                      "d-flex justify-content-between text-light"
                 }
               >
                 Home
@@ -89,9 +120,11 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               <Link
                 to="/Team"
                 className={
-                  color === "light"
+                  navColor === "light"
                     ? "d-flex justify-content-between text-light"
-                    : "d-flex justify-content-between text-dark"
+                    : "d-flex justify-content-between text-dark" &&
+                      mobileViewActive &&
+                      "d-flex justify-content-between text-light"
                 }
               >
                 Team
@@ -103,9 +136,11 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               <Link
                 to="/PricingPlan"
                 className={
-                  color === "light"
+                  navColor === "light"
                     ? "d-flex justify-content-between text-light"
-                    : "d-flex justify-content-between text-dark"
+                    : "d-flex justify-content-between text-dark" &&
+                      mobileViewActive &&
+                      "d-flex justify-content-between text-light"
                 }
               >
                 Pricing
@@ -117,9 +152,11 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               <Link
                 to="/Contact"
                 className={
-                  color === "light"
+                  navColor === "light"
                     ? "d-flex justify-content-between text-light"
-                    : "d-flex justify-content-between text-dark"
+                    : "d-flex justify-content-between text-dark" &&
+                      mobileViewActive &&
+                      "d-flex justify-content-between text-light"
                 }
               >
                 Contact
@@ -133,9 +170,11 @@ const MainNav = ({ index, background, color, darkMode, cartLength }) => {
               <Link
                 to="/Cart"
                 className={
-                  color === "light"
+                  navColor === "light"
                     ? "d-flex justify-content-between fw-semibold text-light"
-                    : "d-flex justify-content-between fw-semibold text-dark"
+                    : "d-flex justify-content-between fw-semibold text-dark" &&
+                      mobileViewActive &&
+                      "d-flex justify-content-between text-light"
                 }
               >
                 Cart ({cartLength})

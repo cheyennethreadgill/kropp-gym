@@ -7,14 +7,7 @@ import Footer from "../Global/Footer";
 import MainNav from "../Global/MainNav";
 import PageHeaders from "../Global/PageHeaders";
 
-const Cart = ({
-  removeItem,
-  decreaseQty,
-  increaseQty,
-  grandTotal,
-  cartLength,
-  cart,
-}) => {
+const Cart = ({ removeItem, decreaseQty, increaseQty, grandTotal, cartLength, cart }) => {
   Cart.propTypes = {
     removeItem: PropTypes.func.isRequired,
     decreaseQty: PropTypes.func.isRequired,
@@ -29,6 +22,7 @@ const Cart = ({
       <MainNav
         darkMode={true}
         cartLength={cartLength}
+        navColor="light"
       />
       <PageHeaders name="Cart" />
 
@@ -147,13 +141,20 @@ const Cart = ({
           ) : (
             <div className="d-flex flex-column  gap-3 justify-content-center align-items-center py-5 mt-5">
               <h5>Add items to your cart</h5>
-              <Button
-                variant=""
+              <a
                 href="/"
-                className="btn-light pe-4"
+                className="btn btn-light pe-4"
               >
                 Shop
-              </Button>
+                <div className="button-container">
+                  <Button
+                    variant="outline-light"
+                    href="/"
+                  >
+                    <span />
+                  </Button>
+                </div>
+              </a>
             </div>
           )}
 
