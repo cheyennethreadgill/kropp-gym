@@ -7,6 +7,7 @@ import HomeShop from "./HomeShop";
 import HomeTrainer from "./HomeTrainer";
 import Footer from "../Global/Footer";
 import Quotes from "./Quotes";
+import Video from "./Video";
 
 const Home = ({
   URL,
@@ -42,6 +43,7 @@ const Home = ({
       <Newsletter />
       <Routines />
       <HomeTrainer />
+      <Video />
       <Quotes />
       <HomeShop
         items={items}

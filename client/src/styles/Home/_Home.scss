@@ -1,6 +1,7 @@
 .home {
-
-
+  &-titles {
+    padding-left: 0.8em;
+  }
   &_newsletter {
     p {
       font-size: 1.1em;
@@ -23,16 +24,26 @@
       margin-top: -5em;
     }
   }
-  &_trainer {
-    h2 {
-      margin: -9rem 0rem 0rem -3em;
+  // &_trainer {
+  //   h2 {
+  //     margin: -9rem 0rem 0rem -3em;
 
-      @include breakpoints-down(sm) {
-        margin: -9rem 0rem 0rem 2em;
-      }
+  //     @include breakpoints-down(sm) {
+  //       margin: -9rem 0rem 0rem 2em;
+  //     }
+  //   }
+  // }
+
+  &-video {
+    &:hover {
+      cursor: none;
+      content: "";
+      width: 30px;
+      height: 30px;
+      position: relative;
+      border: solid 1px $light;
     }
   }
-
   &_shop {
     .card {
       border: none;

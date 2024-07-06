@@ -1,6 +1,5 @@
 body {
-  color: $primary;
-  color: 255 255 255;
+  @include font-body(400);
   overflow-x: hidden !important;
   position: relative;
 }
@@ -26,21 +25,37 @@ h6 {
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
-
+h4 {
+  font-weight: 300;
+}
 .title-container {
   position: relative;
+  width: inherit;
 
-  &_characters {
+  &-characters {
     position: absolute;
-    top: -62px;
-    left: -72px;
-    opacity: 0.06;
-    font-size: 6rem;
-    font-weight: bold;
-    letter-spacing: -8px;
-    transform: translateX(-600px);
+    // top: -53px; // added in accents comp
+    // left: -83px; //added in accents comp
+    padding-left: 0.5em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: $dark;
+    opacity: 0.27;
+    -webkit-text-stroke-width: 1px;
+    z-index: -2;
 
-    // &_char {
-    // }
+    &-mask {
+      display: inline-block;
+      overflow: hidden;
+
+      &-char {
+        display: inline-block;
+        transform: translateX(-180px);
+      }
+    }
   }
+}
+
+.animateTitle {
+  transform: translateX(0px);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
 }

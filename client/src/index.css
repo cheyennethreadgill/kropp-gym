@@ -11916,11 +11916,11 @@ textarea.form-control-lg {
 }
 
 .h1-secondary {
-  font-size: 2.375em;
+  font-size: 2.15em;
 }
 @media screen and (min-width: 768px) {
   .h1-secondary {
-    font-size: 3.75em;
+    font-size: 3.85em;
   }
 }
 
@@ -11948,6 +11948,10 @@ textarea.form-control-lg {
   width: 1em;
   height: 1.7em;
   filter: invert(1);
+}
+
+.form-label {
+  width: 100%;
 }
 
 .form-control.is-valid,
@@ -12007,7 +12011,7 @@ textarea.form-control-lg {
   border-radius: 3em;
   position: relative;
   color: #131619;
-  border: 1px solid #969696;
+  border: 1px solid #c9c9c9;
 }
 .form-control:hover {
   border: 1px solid #131619;
@@ -12171,8 +12175,10 @@ textarea.form-control-lg {
 }
 
 body {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   color: #000;
-  color: 255 255 255;
   overflow-x: hidden !important;
   position: relative;
 }
@@ -12204,18 +12210,35 @@ h6,
   letter-spacing: -0.02em;
 }
 
+h4, .h4 {
+  font-weight: 300;
+}
+
 .title-container {
   position: relative;
+  width: inherit;
 }
-.title-container_characters {
+.title-container-characters {
   position: absolute;
-  top: -62px;
-  left: -72px;
-  opacity: 0.06;
-  font-size: 6rem;
-  font-weight: bold;
-  letter-spacing: -8px;
-  transform: translateX(-600px);
+  padding-left: 0.5em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: #131619;
+  opacity: 0.27;
+  -webkit-text-stroke-width: 1px;
+  z-index: -2;
+}
+.title-container-characters-mask {
+  display: inline-block;
+  overflow: hidden;
+}
+.title-container-characters-mask-char {
+  display: inline-block;
+  transform: translateX(-180px);
+}
+
+.animateTitle {
+  transform: translateX(0px);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
 }
 
 .headers-info-jumbotron {
@@ -12290,6 +12313,9 @@ h6,
   font-size: 1.375em;
 }
 
+.home-titles {
+  padding-left: 0.8em;
+}
 .home_newsletter p {
   font-size: 1.1em;
 }
@@ -12312,13 +12338,13 @@ h6,
     margin-top: -5em;
   }
 }
-.home_trainer h2, .home_trainer .h2 {
-  margin: -9rem 0rem 0rem -3em;
-}
-@media screen and (max-width: 576px) {
-  .home_trainer h2, .home_trainer .h2 {
-    margin: -9rem 0rem 0rem 2em;
-  }
+.home-video:hover {
+  cursor: none;
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: solid 1px #eff0f3;
 }
 .home_shop .card {
   border: none;

@@ -170,6 +170,20 @@ const Cart = ({ removeItem, decreaseQty, increaseQty, grandTotal, cartLength, ca
                 </Col>
                 <hr />
                 <Col sm="12">
+                  {/* <a
+                    href="/Checkout"
+                    className="btn-light pe-3"
+                  >
+                    Checkout
+                    <div className="button-container">
+                      <Button
+                        aria-label="Check Out"
+                        variant={headerImgs[index].imgColor === "dark" ? "outline-light" : "outline-dark"}
+                      >
+                        <span />
+                      </Button>
+                    </div>
+                  </a> */}
                   <Link
                     variant=""
                     to="/Checkout"

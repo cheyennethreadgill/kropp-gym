@@ -1,7 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import HeaderAccent from "../Global/headerAccent";
+import log from "../../animations";
+import Accents from "../Accents";
 
 const Newsletter = () => {
   const [validated, setValidated] = useState(false);
@@ -42,6 +44,17 @@ const Newsletter = () => {
       };
     }
   }
+  const [docPosition, setDocPosition] = useState(window.scrollY);
+  const [animationStart, setAnimationStart] = useState(false);
+
+  const handleScreenPosition = () => {
+    setDocPosition(Math.floor(window.scrollY));
+    if (docPosition > 250) {
+      setAnimationStart(true);
+    }
+  };
+  window.addEventListener("scroll", handleScreenPosition);
+  log();
 
   return (
     <section className="home_newsletter pt-5 ">
@@ -59,19 +72,20 @@ const Newsletter = () => {
                 handleNewsletterFetch(event);
               }}
             >
-              <Form.Group as={Col}>
+              <Form.Group
+                as={Col}
+                className="position-relative"
+              >
                 <Form.Label htmlFor="email">
-                  <HeaderAccent />
-                  <div className="title-container">
-                    <div className="title-container_characters">
-                      <span className="title-container_characters_char">N</span>
-                      <span className="title-container_characters_char">E</span>
-                      <span className="title-container_characters_char">W</span>
-                      <span className="title-container_characters_char">S</span>
-                    </div>
-                    <h2 className=" fs-1 fw-bold text-uppercase">Newsletter</h2>
-                  </div>
+                  <HeaderAccent width="25" />
+                  <Accents
+                    word={"news"}
+                    letters={["n", "e", "w", "s"]}
+                    large={false}
+                  />
+                  <h2 className=" fs-1 fw-bold text-uppercase mb-5 z-100 position-relative home-titles">Newsletter</h2>
                 </Form.Label>
+
                 <Form.Group className="input-container">
                   <Form.Control
                     className=""

@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Container, Col, Row} from 'react-bootstrap';
-import Image from 'react-bootstrap/Image';
-import img from '../../images/Team/team-subscribe.jpg.webp';
+import React, { useEffect, useState } from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import img from "../../images/Team/team-subscribe.jpg.webp";
 
 const Quotes = () => {
-  const url = 'https://api.adviceslip.com/advice';
+  const url = "https://api.adviceslip.com/advice";
 
   const [error, setError] = useState();
   const [data, setData] = useState();
@@ -20,7 +20,7 @@ const Quotes = () => {
         setData(quote);
         setLoading(false);
       } catch {
-        setError('Error Try again later');
+        setError("Error Try again later");
       }
     })();
   }, []);
@@ -30,10 +30,11 @@ const Quotes = () => {
       <Row>
         <div
           className="quote bg-light text-dark d-flex flex-column justify-content-center align-items-center text-center py-5"
-          style={{height: '100%'}}>
+          style={{ height: "100%" }}
+        >
           {error && <h1>{error}</h1>}
 
-          <Container className="px-5">
+          <Container className="px-5 py-5">
             <p className="text-dark fw-bold">#GetInspired</p>
             {loading ? (
               <div className="loading"></div>

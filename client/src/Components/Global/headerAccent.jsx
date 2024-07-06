@@ -1,13 +1,13 @@
 import React from "react";
 
-const HeaderAccent = () => {
+const HeaderAccent = ({ width }) => {
   return (
     <span className="position-absolute ">
       <svg
         className="qodef-svg--title-decoration qodef-title-decoration"
         xmlns="http://www.w3.org/2000/svg"
-        width="40"
-        height="40"
+        width={width}
+        height={width}
         viewBox="0 0 40 40"
         preserveAspectRatio="xMidYMid meet"
       >

@@ -19,8 +19,6 @@ const MainNav = ({ background, navColor, darkMode, cartLength }) => {
   const mobileView = window.matchMedia("(max-width: 600px)");
 
   const handleMobileView = () => {
-    console.log(mobileViewActive);
-    console.log(window.innerWidth);
     if (mobileView.matches) {
       setMobileViewActive(true);
     } else {
@@ -101,7 +99,6 @@ const MainNav = ({ background, navColor, darkMode, cartLength }) => {
 
             <Nav className="fs-7 letter-spacing-1 fw-bold main-nav py-5 gap-5 text-uppercase">
               <Link
-                activeKey="/home"
                 to="/"
                 className={
                   navColor === "light"
