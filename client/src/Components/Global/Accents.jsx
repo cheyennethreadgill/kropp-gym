@@ -1,25 +1,30 @@
 import { useState } from "react";
 import _ from "lodash";
 
-const Accents = ({ letters, large, word }) => {
+const Accents = ({ letters, large, title, color, bgColor }) => {
   const [docPosition, setDocPosition] = useState(window.scrollY);
   const [animationStart, setAnimationStart] = useState(false);
 
   const handleScreenPosition = () => {
     setDocPosition(Math.floor(window.scrollY));
 
-    if (word === "news") {
+    if (title === "news") {
       if (docPosition > 250) {
         setAnimationStart(true);
       }
     }
-    if (word === "trainer") {
+    if (title === "trainer") {
       if (docPosition > 1250) {
         setAnimationStart(true);
       }
     }
-    if (word === "shop") {
-      if (docPosition > 2200) {
+    if (title === "boost") {
+      if (docPosition > 2500) {
+        setAnimationStart(true);
+      }
+    }
+    if (title === "shop") {
+      if (docPosition > 3000) {
         setAnimationStart(true);
       }
     }
@@ -29,12 +34,21 @@ const Accents = ({ letters, large, word }) => {
   return (
     <div className="title-container">
       <span
-        style={large ? { top: "-105px", left: "86px" } : { top: "-50px", left: "-72px" }}
+        style={
+          large
+            ? { top: "-105px", left: "86px" }
+            : !large && bgColor === "dark"
+            ? { top: "-50px", left: "-72px", WebkitTextStrokeColor: `${color}` } //css is taking precendence over this
+            : { top: "-50px", left: "-72px", WebkitTextStrokeColor: "$dark" }
+        }
         className="h1-secondary fw-bold title-container-characters"
       >
         {letters.map((letter) => {
           return (
-            <span className="title-container-characters-mask">
+            <span
+              key={"key"}
+              className="title-container-characters-mask" 
+            >
               <span
                 style={large ? { fontSize: "12rem" } : { fontSize: "6rem" }}
                 className={

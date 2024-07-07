@@ -12184,7 +12184,8 @@ body {
 }
 
 a,
-button {
+button,
+p {
   letter-spacing: 0.5px;
   text-decoration: none;
 }
@@ -12192,7 +12193,7 @@ button {
 p,
 li {
   color: rgba(64, 64, 64, 0.7019607843);
-  line-height: 1.8em;
+  line-height: 1.3em;
 }
 
 h1, .h1,
@@ -12216,13 +12217,11 @@ h4, .h4 {
 
 .title-container {
   position: relative;
-  width: inherit;
 }
 .title-container-characters {
   position: absolute;
   padding-left: 0.5em;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-color: #131619;
   opacity: 0.27;
   -webkit-text-stroke-width: 1px;
   z-index: -2;
@@ -12239,6 +12238,22 @@ h4, .h4 {
 .animateTitle {
   transform: translateX(0px);
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
+}
+
+.slider progress {
+  width: 100%;
+  border-radius: 7px;
+  height: 5px;
+}
+.slider progress::-webkit-progress-bar {
+  height: 1.8px;
+  box-sizing: border-box;
+  background-color: rgba(169, 169, 169, 0.438);
+}
+.slider progress::-webkit-progress-value {
+  background-color: white;
+  height: 5px !important;
+  box-sizing: border-box;
 }
 
 .headers-info-jumbotron {
@@ -12338,13 +12353,19 @@ h4, .h4 {
     margin-top: -5em;
   }
 }
-.home-video:hover {
-  cursor: none;
-  content: "";
-  width: 30px;
-  height: 30px;
+.home-blog-start {
+  height: 100%;
   position: relative;
-  border: solid 1px #eff0f3;
+}
+.home-blog-start-img {
+  background: no-repeat center url("/src/images/Home/blog-start/blog-start.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
 }
 .home_shop .card {
   border: none;

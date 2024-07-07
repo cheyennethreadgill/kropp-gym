@@ -7,7 +7,7 @@ import HomeShop from "./HomeShop";
 import HomeTrainer from "./HomeTrainer";
 import Footer from "../Global/Footer";
 import Quotes from "./Quotes";
-import Video from "./Video";
+import Video from "./HomeBlogStart";
 
 const Home = ({
   URL,
@@ -43,8 +43,12 @@ const Home = ({
       <Newsletter />
       <Routines />
       <HomeTrainer />
-      <Video />
       <Quotes />
+      <Video />
+      <section
+        style={{ height: " 500px" }}
+        className="bg-dark"
+      ></section>
       <HomeShop
         items={items}
         handleCartIncrease={handleCartIncrease}

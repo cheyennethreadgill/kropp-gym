@@ -1,3 +1,20 @@
+<!-- title headers
+        add animation when screen reaches certain point
+
+        container for whole word
+            second container
+                invisible masks for each letter
+                        masks are at the end position of each letter
+                    transform translate each letter on x axis
+        the letter is contained to the mask
+            the letter is translated beyond the mask
+        the mask is set to overflow hidden to hide the letter while its out of site
+
+
+
+
+
+ -->
 <!-- Navcar -->
 <!--
 when the carosel contains img that requires light text, change the nabar color to light

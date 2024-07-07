@@ -5,7 +5,8 @@ body {
 }
 
 a,
-button {
+button,
+p {
   letter-spacing: 0.5px;
   text-decoration: none;
 }
@@ -13,7 +14,7 @@ button {
 p,
 li {
   color: $color-body;
-  line-height: 1.8em;
+  line-height: 1.3em;
 }
 
 h1,
@@ -28,9 +29,9 @@ h6 {
 h4 {
   font-weight: 300;
 }
+
 .title-container {
   position: relative;
-  width: inherit;
 
   &-characters {
     position: absolute;
@@ -38,7 +39,7 @@ h4 {
     // left: -83px; //added in accents comp
     padding-left: 0.5em;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: $dark;
+    // -webkit-text-stroke-color: $dark; //added in accents comp
     opacity: 0.27;
     -webkit-text-stroke-width: 1px;
     z-index: -2;
@@ -58,4 +59,23 @@ h4 {
 .animateTitle {
   transform: translateX(0px);
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
+}
+
+.slider {
+  progress {
+    width: 100%;
+    border-radius: 7px;
+    height: 5px;
+
+    &::-webkit-progress-bar {
+      height: 1.8px;
+      box-sizing: border-box;
+      background-color: $medium-light;
+    }
+    &::-webkit-progress-value {
+      background-color: white;
+      height: 5px !important;
+      box-sizing: border-box;
+    }
+  }
 }

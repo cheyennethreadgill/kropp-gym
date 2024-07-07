@@ -3,6 +3,8 @@
 // variables
 $primary: #000;
 $secondary: #0a0a0a;
+
+$medium-light: rgba(169, 169, 169, 0.438);
 $medium: #c9c9c9;
 $dark: #131619;
 $darker: #313940;
@@ -69,6 +71,7 @@ $border_dormant-darker: $color-input-darker;
 }
 
 // Global---------------------------
+
 // --------------------------------------------------Fonts
 @mixin font-body($weight) {
   font-family: "Yantramanav", sans-serif;

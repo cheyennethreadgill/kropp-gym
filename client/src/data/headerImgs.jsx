@@ -4,14 +4,14 @@ export default [
   {
     id: 0,
     title: "slide 1",
-    img: require("../images/Home/header/home-slide-2.jpg.webp"),
-    imgColor: "light",
+    img: require("../images/Home/header/home-slide-3.jpg.webp"),
+    imgColor: "dark",
   },
   {
     id: 1,
     title: "slide 2",
-    img: require("../images/Home/header/home-slide-3.jpg.webp"),
-    imgColor: "dark",
+    img: require("../images/Home/header/home-slide-2.jpg.webp"),
+    imgColor: "light",
   },
   {
     id: 2,

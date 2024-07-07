@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import trainer from "../../images/Home/trainer/home-trainer.png.webp";
 import HeaderAccent from "../Global/headerAccent";
-import Accents from "../Accents";
+import Accents from "../Global/Accents";
+import ThemeButton from "../Global/Buttons";
 
 const HomeTrainer = () => {
   const [docPosition, setDocPosition] = useState(window.scrollY);
   const [animationStart, setAnimationStart] = useState(false);
 
   const handleScreenPosition = () => {
-    console.log(docPosition);
     setDocPosition(Math.floor(window.scrollY));
     if (docPosition > 1280) {
       setAnimationStart(true);
@@ -28,13 +28,15 @@ const HomeTrainer = () => {
             className="gap-5 mb-sm-5 pb-sm-5"
           >
             <Form.Label>
-              <HeaderAccent width={"25"} />
               <Accents
-                word={"trainer"}
+                title={"trainer"}
                 letters={["t", "r", "a", "i", "n", "e", "r"]}
                 large={false}
               />
-              <h2 className="home-titles fs-1 fw-bold text-uppercase mb-3 z-100 position-relative">Get a trainer</h2>
+              <HeaderAccent
+                width={"25"}
+                title={"get a trainer"}
+              />
             </Form.Label>
 
             <ul className="fs-5 pb-3">
@@ -45,20 +47,12 @@ const HomeTrainer = () => {
               <li>Lorem Ipsum Ret Git Erut Meait</li>
             </ul>
 
-            <Link
-              to="/Team"
-              className="mt-3 btn-dark"
-            >
-              View More
-              <div className="button-container">
-                <Button
-                  aria-label="View More Trainers"
-                  variant="outline-dark"
-                >
-                  <span />
-                </Button>
-              </div>
-            </Link>
+            <ThemeButton
+              link={"/Team"}
+              variant={"outline-dark"}
+              viewMore={"Trainers"}
+              btnStyle={"dark"}
+            />
           </Col>
           <Col
             lg="6"

@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import HeaderAccent from "../Global/headerAccent";
 import log from "../../animations";
 import Accents from "../Global/Accents";
 
-const Newsletter = () => {
+export const Newsletter = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
   const handleFormValidation = (event) => {
@@ -77,15 +77,13 @@ const Newsletter = () => {
                 className="position-relative"
               >
                 <Form.Label htmlFor="email">
+                  <HeaderAccent width="25" />
                   <Accents
                     title={"news"}
                     letters={["n", "e", "w", "s"]}
                     large={false}
                   />
-                  <HeaderAccent
-                    width="25"
-                    title={"newsletter"}
-                  />
+                  <h2 className=" fs-1 fw-bold text-uppercase mb-5 z-100 position-relative home-titles">Newsletter</h2>
                 </Form.Label>
 
                 <Form.Group className="input-container">
@@ -140,5 +138,3 @@ const Newsletter = () => {
     </section>
   );
 };
-
-export default Newsletter;

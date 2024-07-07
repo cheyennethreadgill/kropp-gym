@@ -29,17 +29,17 @@ const Quotes = () => {
     <section className="home_quotes ">
       <Row>
         <div
-          className="quote bg-light text-dark d-flex flex-column justify-content-center align-items-center text-center py-5"
+          className="quote bg-black text-light d-flex flex-column justify-content-center align-items-center text-center py-5"
           style={{ height: "100%" }}
         >
           {error && <h1>{error}</h1>}
 
           <Container className="px-5 py-5">
-            <p className="text-dark fw-bold">#GetInspired</p>
+            <p className="text-light fw-bold">#GetInspired</p>
             {loading ? (
               <div className="loading"></div>
             ) : (
-              <h4 className="fs-2 fw-normal text-dark animate__animated animate__fadeIn">{data}</h4>
+              <h4 className="fs-2 fw-normal text-light animate__animated animate__fadeIn">{data}</h4>
             )}
           </Container>
         </div>

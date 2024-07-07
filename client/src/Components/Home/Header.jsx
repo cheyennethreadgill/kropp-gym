@@ -8,6 +8,7 @@ import headerImgs from "../../data/headerImgs";
 import sliderlogo from "../../images/Home/header/slider-logo.png.webp";
 import MainNav from "../Global/MainNav";
 import { Row, Col } from "react-bootstrap";
+import ThemeButton from "../Global/Buttons";
 
 const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
   Header.propTypes = {
@@ -64,7 +65,6 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
                 src={img.img}
                 className="carousel-img"
               />
-
               <div className="home_header_carousel-caption_container m-0 m-auto">
                 <Carousel.Caption className="d-flex align-items-center justify-content-center flex-column ">
                   <Image
@@ -74,43 +74,24 @@ const Header = ({ carouselImgMode, darkMode, cartLength, cart }) => {
                     style={{ filter: headerImgs[index].imgColor === "dark" ? "invert(1)" : "none" }}
                   />
                   <Row className="home_header_carousel-cta-container justify-content-center gap-4 mt-4">
-                    <a
-                      href="/PricingPlan"
-                      className={
-                        headerImgs[index].imgColor === "dark"
-                          ? "mt-3 btn-light animate__animated animate__fadeInUp animate__delay-1s"
-                          : "mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-1s"
-                      }
-                    >
-                      View More
-                      <div className="button-container">
-                        <Button
-                          aria-label="View More Pricing Plans"
-                          variant={headerImgs[index].imgColor === "dark" ? "outline-light" : "outline-dark"}
-                        >
-                          <span />
-                        </Button>
-                      </div>
-                    </a>
-
-                    <a
-                      href="/Checkout"
-                      className={
-                        headerImgs[index].imgColor === "dark"
-                          ? "mt-3 btn-light animate__animated animate__fadeInUp animate__delay-2s"
-                          : "mt-3 btn-dark animate__animated animate__fadeInUp animate__delay-2s"
-                      }
-                    >
-                      Checkout
-                      <div className="button-container">
-                        <Button
-                          aria-label="Check Out"
-                          variant={headerImgs[index].imgColor === "dark" ? "outline-light" : "outline-dark"}
-                        >
-                          <span />
-                        </Button>
-                      </div>
-                    </a>
+                    <ThemeButton
+                      text={"View More"}
+                      carousel={true}
+                      link={"/PricingPlan"}
+                      viewMore={"of pricing plans"}
+                      headerImgs={headerImgs}
+                      index={index}
+                      btnDuplicate={true}
+                    />
+                    <ThemeButton
+                      text={"checkout"}
+                      carousel={true}
+                      link={"/Checkout"}
+                      viewMore={"Check Out"}
+                      headerImgs={headerImgs}
+                      index={index}
+                      btnTiming={1}
+                    />
                   </Row>
                 </Carousel.Caption>
               </div>
