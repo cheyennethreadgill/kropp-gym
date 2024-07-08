@@ -7,24 +7,54 @@ const Accents = ({ letters, large, title, color, bgColor, AccentKey }) => {
 
   const handleScreenPosition = () => {
     setDocPosition(Math.floor(window.scrollY));
-    if (title === "news") {
-      if (docPosition > 250) {
-        setAnimationStart(true);
+    const mobile = window.matchMedia("(max-width: 600px)");
+
+    console.log(docPosition);
+
+    if (mobile.matches) {
+      console.log("mbile view");
+      if (title === "news") {
+        if (docPosition > 50) {
+          setAnimationStart(true);
+        }
+      }
+      if (title === "trainer") {
+        if (docPosition > 2727) {
+          setAnimationStart(true);
+        }
+      }
+      if (title === "boost") {
+        if (docPosition > 4100) {
+          setAnimationStart(true);
+        }
+      }
+      if (title === "shop") {
+        if (docPosition > 5450) {
+          setAnimationStart(true);
+        }
       }
     }
-    if (title === "trainer") {
-      if (docPosition > 1250) {
-        setAnimationStart(true);
+    if (!mobile.matches) {
+      console.log("desktop view");
+      if (title === "news") {
+        if (docPosition > 250) {
+          setAnimationStart(true);
+        }
       }
-    }
-    if (title === "boost") {
-      if (docPosition > 2500) {
-        setAnimationStart(true);
+      if (title === "trainer") {
+        if (docPosition > 1250) {
+          setAnimationStart(true);
+        }
       }
-    }
-    if (title === "shop") {
-      if (docPosition > 3000) {
-        setAnimationStart(true);
+      if (title === "boost") {
+        if (docPosition > 2500) {
+          setAnimationStart(true);
+        }
+      }
+      if (title === "shop") {
+        if (docPosition > 3000) {
+          setAnimationStart(true);
+        }
       }
     }
   };

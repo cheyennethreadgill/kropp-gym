@@ -26,7 +26,7 @@ const Sliders = ({ titles, progressAnimationStart }) => {
           if (progressAnimationStart) {
             for (var counter = 0; counter < progressValue; counter++) {
               setValue(counter);
-              console.log(counter);
+              // console.log(counter);
             }
           }
         }, [progressAnimationStart]);

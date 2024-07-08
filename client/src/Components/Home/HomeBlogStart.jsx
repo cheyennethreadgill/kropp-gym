@@ -11,14 +11,28 @@ const HomeBlogStart = () => {
 
   const handleBlogProgressScreenPosition = () => {
     setBlogDocPosition(Math.floor(window.scrollY));
-    if (blogDocPosition < 2249) {
-      setProgressAnimationStart(false);
-    }
-    if (blogDocPosition > 2250) {
-      setProgressAnimationStart(true);
-    }
-    if (blogDocPosition > 3050) {
-      setProgressAnimationStart(false);
+
+    const mobile = window.matchMedia("(max-width: 600px)");
+    if ( mobile.matches ) {
+      if (blogDocPosition < 4351) {
+        setProgressAnimationStart(false);
+      }
+      if (blogDocPosition > 4418) {
+        setProgressAnimationStart(true);
+      }
+      if (blogDocPosition > 5217) {
+        setProgressAnimationStart(false);
+      }
+    } else {
+      if (blogDocPosition < 2249) {
+        setProgressAnimationStart(false);
+      }
+      if (blogDocPosition > 2250) {
+        setProgressAnimationStart(true);
+      }
+      if (blogDocPosition > 3050) {
+        setProgressAnimationStart(false);
+      }
     }
   };
   window.addEventListener("scroll", handleBlogProgressScreenPosition);
