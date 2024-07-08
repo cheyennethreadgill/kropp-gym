@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import Newsletter from "./Newsletter";
@@ -32,6 +32,7 @@ const Home = ({
   const [price, setPrice] = useState(0);
   // eslint-disable-next-line no-unused-vars
   const [increase, setIncrease] = useState(price);
+
   return (
     <section>
       <Header

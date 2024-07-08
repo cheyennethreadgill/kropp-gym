@@ -1,13 +1,12 @@
 import { useState } from "react";
 import _ from "lodash";
 
-const Accents = ({ letters, large, title, color, bgColor }) => {
+const Accents = ({ letters, large, title, color, bgColor, AccentKey }) => {
   const [docPosition, setDocPosition] = useState(window.scrollY);
   const [animationStart, setAnimationStart] = useState(false);
 
   const handleScreenPosition = () => {
     setDocPosition(Math.floor(window.scrollY));
-
     if (title === "news") {
       if (docPosition > 250) {
         setAnimationStart(true);
@@ -31,9 +30,15 @@ const Accents = ({ letters, large, title, color, bgColor }) => {
   };
   window.addEventListener("scroll", handleScreenPosition);
 
+  const key = Math.random();
+
   return (
-    <div className="title-container">
+    <div
+      key="accents"
+      className="title-container"
+    >
       <span
+        key={"accents-container-characters"}
         style={
           large
             ? { top: "-105px", left: "86px" }
@@ -45,10 +50,7 @@ const Accents = ({ letters, large, title, color, bgColor }) => {
       >
         {letters.map((letter) => {
           return (
-            <span
-              key={"key"}
-              className="title-container-characters-mask" 
-            >
+            <span className="title-container-characters-mask">
               <span
                 style={large ? { fontSize: "12rem" } : { fontSize: "6rem" }}
                 className={

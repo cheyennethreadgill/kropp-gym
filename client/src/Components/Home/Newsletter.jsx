@@ -44,17 +44,6 @@ const Newsletter = () => {
       };
     }
   }
-  const [docPosition, setDocPosition] = useState(window.scrollY);
-  const [animationStart, setAnimationStart] = useState(false);
-
-  const handleScreenPosition = () => {
-    setDocPosition(Math.floor(window.scrollY));
-    if (docPosition > 250) {
-      setAnimationStart(true);
-    }
-  };
-  window.addEventListener("scroll", handleScreenPosition);
-  log();
 
   return (
     <section className="home_newsletter pt-5 ">
@@ -78,6 +67,7 @@ const Newsletter = () => {
               >
                 <Form.Label htmlFor="email">
                   <Accents
+                    AccentKey={"newsletter key"}
                     title={"news"}
                     letters={["n", "e", "w", "s"]}
                     large={false}

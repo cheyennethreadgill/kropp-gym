@@ -77,8 +77,12 @@ export const Newsletter = () => {
                 className="position-relative"
               >
                 <Form.Label htmlFor="email">
-                  <HeaderAccent width="25" />
+                  <HeaderAccent
+                    width="25"
+                    key={"newsletter"}
+                  />
                   <Accents
+                    AccentKey={"newsletter"}
                     title={"news"}
                     letters={["n", "e", "w", "s"]}
                     large={false}

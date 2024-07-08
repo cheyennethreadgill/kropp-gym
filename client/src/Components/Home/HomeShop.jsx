@@ -20,6 +20,7 @@ const HomeShop = ({ cart, items, handleCartIncrease }) => {
             title={"shop"}
             letters={["s", "h", "o", "p"]}
             large={true}
+            AccentKey={"shop"}
           />
           <HeaderAccent
             width={"25"}

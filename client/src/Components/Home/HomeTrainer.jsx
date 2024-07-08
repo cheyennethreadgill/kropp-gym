@@ -8,16 +8,7 @@ import Accents from "../Global/Accents";
 import ThemeButton from "../Global/Buttons";
 
 const HomeTrainer = () => {
-  const [docPosition, setDocPosition] = useState(window.scrollY);
-  const [animationStart, setAnimationStart] = useState(false);
 
-  const handleScreenPosition = () => {
-    setDocPosition(Math.floor(window.scrollY));
-    if (docPosition > 1280) {
-      setAnimationStart(true);
-    }
-  };
-  window.addEventListener("scroll", handleScreenPosition);
   return (
     <section className="home_trainer py-5 my-5">
       <Container>
@@ -30,6 +21,7 @@ const HomeTrainer = () => {
             <Form.Label>
               <Accents
                 title={"trainer"}
+                AccentKey={"trainer key"}
                 letters={["t", "r", "a", "i", "n", "e", "r"]}
                 large={false}
               />

@@ -1,4 +1,8 @@
 <!-- title headers
+    <!-- slider -->
+        how can we animate the progress value number from 0 to its value?
+
+
         add animation when screen reaches certain point
 
         container for whole word

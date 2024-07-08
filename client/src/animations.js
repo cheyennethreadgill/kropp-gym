@@ -1,5 +1,5 @@
 const titleContainer = document.querySelector(".title-container");
-const log = () => {
+export const log = () => {
   //   if (titleContainer.hasFocus()) {
   //     console.log("title container in focuse");
   //   } else {
@@ -13,5 +13,3 @@ document.addEventListener(
   },
   false
 );
-
-module.exports = log;

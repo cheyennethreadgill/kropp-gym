@@ -12183,6 +12183,10 @@ body {
   position: relative;
 }
 
+* {
+  outline: none;
+}
+
 a,
 button,
 p {
@@ -12244,16 +12248,19 @@ h4, .h4 {
   width: 100%;
   border-radius: 7px;
   height: 5px;
+  transition: all ease-in-out 1s;
 }
 .slider progress::-webkit-progress-bar {
   height: 1.8px;
   box-sizing: border-box;
   background-color: rgba(169, 169, 169, 0.438);
+  transition: all ease-in-out 1s;
 }
 .slider progress::-webkit-progress-value {
   background-color: white;
   height: 5px !important;
   box-sizing: border-box;
+  transition: all ease-in-out 1s;
 }
 
 .headers-info-jumbotron {
