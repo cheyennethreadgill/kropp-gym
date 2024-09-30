@@ -10,8 +10,6 @@ const App = () => {
   const [items, setItems] = useState(products);
   const darkMode = true;
 
-  
-
   // ----------------------------------------------------------------------------Remove Item
   const removeItem = (id) => {
     cart.find((item) => {
@@ -24,7 +22,7 @@ const App = () => {
       setCart(
         cart.filter((item) => {
           return id !== item.id;
-        }),
+        })
       );
     }
     return id;
@@ -42,7 +40,7 @@ const App = () => {
           return item.id === prod.id
             ? { ...existingProduct, quantity: existingProduct.quantity + 1 }
             : item;
-        }),
+        })
       );
     }
   };
@@ -61,14 +59,14 @@ const App = () => {
                 quantity: Math.max(1, existingProduct.quantity - 1),
               }
             : item;
-        }),
+        })
       );
     }
     if (existingProduct.quantity < 1) {
       setCart(
         cart.filter((item) => {
           return prod.id !== item.id;
-        }),
+        })
       );
     }
   };

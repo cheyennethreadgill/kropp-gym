@@ -1,0 +1,87 @@
+body {
+  @include font-body(400);
+  overflow-x: hidden !important;
+  position: relative;
+}
+* {
+  outline: none;
+}
+
+a,
+button,
+p {
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+p,
+li {
+  color: $color-body;
+  line-height: 1.3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+h4 {
+  font-weight: 300;
+}
+
+.title-container {
+  position: relative;
+
+  &-characters {
+    position: absolute;
+    // top: -53px; // added in accents comp
+    // left: -83px; //added in accents comp
+    padding-left: 0.5em;
+    -webkit-text-fill-color: transparent;
+    // -webkit-text-stroke-color: $dark; //added in accents comp
+    opacity: 0.27;
+    -webkit-text-stroke-width: 1px;
+    z-index: -2;
+
+    &-mask {
+      display: inline-block;
+      overflow: hidden;
+
+      &-char {
+        display: inline-block;
+        transform: translateX(-180px);
+      }
+    }
+  }
+}
+
+.animateTitle {
+  transform: translateX(0px);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
+}
+
+.slider {
+  progress {
+    width: 100%;
+    border-radius: 7px;
+    height: 5px;
+    transition: all ease-in-out 1s;
+
+    &::-webkit-progress-bar {
+      height: 1.8px;
+      box-sizing: border-box;
+      background-color: $medium-light;
+      transition: all ease-in-out 1s;
+    }
+    &::-webkit-progress-value {
+      background-color: white;
+      height: 5px !important;
+      box-sizing: border-box;
+      transition: all ease-in-out 1s;
+    }
+  }
+}
